@@ -1,0 +1,25 @@
+.iphone {
+  border: 3px solid transparent;
+  border-radius: 36px;
+  width: 290px;
+  height: 600px;
+  position: relative;
+  box-shadow: -7px 5px 21px #a7998a;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom left, #a7846e, #d2c4af) border-box;
+  margin: auto;
+  margin-top: 0%;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.screen {
+  position: absolute;
+  background-size: cover;
+  width: 260px;
+  height: 448px;
+  background-image: url("/hw1_iphone/images/content/background-screen.png");
+  margin: 60px 13px;
+  border: 2px solid #5f5c56;
+  border-radius: 3px;
+}
