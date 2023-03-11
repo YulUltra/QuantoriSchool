@@ -73,4 +73,17 @@ body {
   height: 4px;
   border-radius: 0.2rem;
   background: #1d1312;
+  border: 1px solid #9f9796;
+}
+
+.bottom-btn {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to top left, #3c3628, #dfd7cb) border-box;
+  top: 535px;
+  left: 126px;
+  width: 45px;
+  height: 45px;
 }
