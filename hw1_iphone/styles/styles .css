@@ -1,3 +1,17 @@
+body {
+  background-color: #000;
+  padding-top: 5%;
+}
+
+.container {
+  background-image: url("/hw1_iphone/images/background-page.png");
+  width: 500px;
+  height: 750px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
 .iphone {
   border: 3px solid transparent;
   border-radius: 36px;
@@ -7,8 +21,8 @@
   box-shadow: -7px 5px 21px #a7998a;
   background: linear-gradient(white, white) padding-box,
     linear-gradient(to bottom left, #a7846e, #d2c4af) border-box;
+  display: block;
   margin: auto;
-  margin-top: 0%;
   cursor: pointer;
   color: #ffffff;
 }
@@ -22,4 +36,32 @@
   margin: 60px 13px;
   border: 2px solid #5f5c56;
   border-radius: 3px;
+}
+
+.tools {
+  z-index: 15;
+  background-color: #86629f;
+  position: relative;
+}
+
+ .front-camera_left {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.3rem solid #1c1e14;
+  background: #0f0f0e;
+}
+
+ .front-camera_top {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.2rem solid #1c1e14;
+}
+
+.microphone {
+  position: absolute;
+  right: 3.9rem;
+  width; 5.2rem;
+  height: .6rem;
+  border-radius: .2rem;
+  background: #1d1312;
 }
