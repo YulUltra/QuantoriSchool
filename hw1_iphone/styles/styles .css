@@ -23,7 +23,6 @@ body {
     linear-gradient(to bottom left, #a7846e, #d2c4af) border-box;
   display: block;
   margin: auto;
-  cursor: pointer;
   color: #ffffff;
 }
 
@@ -86,6 +85,7 @@ body {
   left: 124px;
   width: 45px;
   height: 45px;
+  cursor: pointer;
 }
 
 .screen {
@@ -127,6 +127,7 @@ body {
   background: #f9f9f9;
   border: 1px solid #c8c7cc;
   opacity: 0.3;
+  cursor: pointer;
 }
 
 .date {
@@ -152,6 +153,7 @@ body {
   justify-content: center;
   align-items: center;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .slider-text {
@@ -168,4 +170,35 @@ body {
     rgb(139, 138, 142) 51%,
     rgb(198, 202, 203) 70%
   );
+}
+
+.bottom-bar {
+  display: flex;
+  margin-left: 121px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+}
+
+.camera-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.camera-btn_img {
+  width: 85%;
+  height: 85%;
+  opacity: 0.5;
+}
+
+.bottom-bar_btn {
+  width: 23px;
+  height: 5px;
+  border-radius: 0.2rem;
+  background: #f9f9f9;
+  border: 1px solid #c8c7cc;
+  opacity: 0.3;
+  cursor: pointer;
 }
