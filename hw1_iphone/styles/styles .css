@@ -128,3 +128,20 @@ body {
   border: 1px solid #c8c7cc;
   opacity: 0.3;
 }
+
+.date {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 0;
+}
+
+.time {
+  font-size: 56px;
+  font-weight: initial;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+  font-family: serif;
+}
