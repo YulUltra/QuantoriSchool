@@ -63,8 +63,47 @@
               />
             </div>
             <div class="calendar-box">
-              <h1 class="time">5:18</h1>
-              <h2 class="date">Wednesday, 24 September</h2>
+              <h1 class="time" id="time"></h1>
+              <script>
+                var time = new Date();
+                var currentTime = time.getHours() + ":" + time.getMinutes();
+                document.getElementById("time").innerHTML = currentTime;
+              </script>
+              <h2 class="date" id="date"></h2>
+              <script type="text/javascript">
+                var date = new Date();
+                var month = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                var dayOfWeek = [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ];
+                var currentDate =
+                  dayOfWeek[date.getDay()] +
+                  ", " +
+                  date.getDate() +
+                  " " +
+                  month[date.getMonth()] +
+                  " ";
+                document.getElementById("date").innerHTML = currentDate;
+              </script>
             </div>
             <div class="slider">
               <img
