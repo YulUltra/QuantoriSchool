@@ -12,16 +12,14 @@
 }
 
 .container {
-  background-image: url("/hw1_iphone/images/background.jpg");
-  width: 500px;
-  height: 750px;
-  margin: auto;
+  background: url("/hw1_iphone/images/background.png") no-repeat;
   display: flex;
   align-items: center;
-}
-
-body {
-  padding-top: 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .iphone {
