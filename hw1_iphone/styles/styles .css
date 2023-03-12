@@ -6,6 +6,7 @@
 
   --text-color-default: #c8c7cc;
   --bg-color-default: #f9f9f9;
+  --screen-color-default: #0c0d0b;
 
   --transition-duration: 0.5s;
   --opacity-default: 0.8;
@@ -54,9 +55,9 @@
   background-size: cover;
   width: 260px;
   height: 453px;
-  background-color: #0c0d0b;
+  background-color: var(--screen-color-default);
   margin: 60px 13px;
-  border: 2px solid #0c0d0b;
+  border: 2px solid var(--screen-color-default);
   box-shadow: rgb(0 0 0 / 15%) 6px 17px 31px;
   border-radius: 3px;
 }
@@ -68,7 +69,7 @@
   height: 453px;
   background-image: url("/hw1_iphone/images/content/background-screen.png");
   margin: 60px 13px;
-  border: 2px solid #0c0d0b;
+  border: 2px solid var(--screen-color-default);
   box-shadow: rgb(0 0 0 / 15%) 6px 17px 31px;
   border-radius: 3px;
 }
