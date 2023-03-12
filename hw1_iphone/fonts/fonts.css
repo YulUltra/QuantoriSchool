@@ -1,0 +1,14 @@
+@font-face {
+  font-family: SF-Pro-Thin;
+  src: url("/hw1_iphone/fonts/SFProDisplay-Thin.ttf");
+}
+
+@font-face {
+  font-family: SF-Pro-Medium;
+  src: url("/hw1_iphone/fonts/SFProDisplay-Medium.ttf");
+}
+
+@font-face {
+  font-family: SF-Pro-Bold;
+  src: url("/hw1_iphone/fonts/SFProDisplay-Bold.ttf");
+}

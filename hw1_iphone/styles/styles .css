@@ -1,16 +1,14 @@
-@font-face {
-  font-family: SF-Pro-Thin;
-  src: url("/hw1_iphone/fonts/SFProDisplay-Thin.ttf");
-}
+@import url("/hw1_iphone/fonts/fonts.css");
 
-@font-face {
-  font-family: SF-Pro-Medium;
-  src: url("/hw1_iphone/fonts/SFProDisplay-Medium.ttf");
-}
+:root {
+  --white: #ffffff;
+  --beige-default: #957e6d;
 
-@font-face {
-  font-family: SF-Pro-Bold;
-  src: url("/hw1_iphone/fonts/SFProDisplay-Bold.ttf");
+  --text-color-default: #c8c7cc;
+  --bg-color-default: #f9f9f9;
+
+  --transition-duration: 0.5s;
+  --opacity-default: 0.8;
 }
 
 .container {
@@ -22,6 +20,10 @@
   align-items: center;
 }
 
+body {
+  padding-top: 5%;
+}
+
 .iphone {
   border: 3px solid transparent;
   border-radius: 36px;
@@ -30,10 +32,10 @@
   position: relative;
   box-shadow: rgb(0 0 0 / 97%) -8px 2px 34px, rgb(0 0 0 / 47%) -22px 6px 18px;
   background: linear-gradient(white, white) padding-box,
-    linear-gradient(to top left, #957e6d, #a98d76) border-box;
+    linear-gradient(to top left, var(--beige-default), #a98d76) border-box;
   display: block;
   margin: auto;
-  color: #ffffff;
+  color: var(--white);
   z-index: 0;
 }
 
@@ -92,13 +94,13 @@
   border-radius: 50%;
   border: 3px solid transparent;
   background: linear-gradient(white, white) padding-box,
-    linear-gradient(to top left, #3c3628, #ffffff) border-box;
+    linear-gradient(to top left, #3c3628, var(--white)) border-box;
   top: 533px;
   left: 124px;
   width: 45px;
   height: 43px;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: var(--opacity-default: );
 }
 
 .screen {
@@ -113,7 +115,7 @@
   flex-flow: row wrap;
   align-items: center;
   margin: 2px 5px;
-  opacity: 0.8;
+  opacity: var(--opacity-default: );
 }
 
 .signal-icons {
@@ -138,10 +140,15 @@
   width: 24px;
   height: 5px;
   border-radius: 0.2rem;
-  background: #f9f9f9;
-  border: 1px solid #c8c7cc;
+  background: var(--bg-color-default: );
+  border: 1px solid var(--text-color-default);
   opacity: 0.3;
   cursor: pointer;
+}
+
+.top-btn:hover {
+  top: 7px;
+  transition: var(--transition-duration);
 }
 
 .date {
@@ -158,7 +165,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 4px;
-  opacity: 0.8;
+  opacity: var(--opacity-default: );
   font-family: SF-Pro-Thin;
 }
 
@@ -169,6 +176,11 @@
   align-items: center;
   opacity: 0.7;
   cursor: pointer;
+}
+
+.slider:hover {
+  transition: 0.2s;
+  margin-left: 7px;
 }
 
 .slider-text {
@@ -203,6 +215,11 @@
   margin-bottom: -48px;
 }
 
+.camera-btn:hover {
+  transition: var(--transition-duration);
+  margin-bottom: -40px;
+}
+
 .camera-btn_img {
   width: 85%;
   height: 85%;
@@ -213,11 +230,16 @@
   width: 23px;
   height: 5px;
   border-radius: 0.2rem;
-  background: #f9f9f9;
-  border: 1px solid #c8c7cc;
+  background: var(--bg-color-default: );
+  border: 1px solid var(--text-color-default);
   opacity: 0.3;
   cursor: pointer;
   margin-bottom: -46px;
+}
+
+.bottom-bar_btn:hover {
+  margin-bottom: -40px;
+  transition: var(--transition-duration);
 }
 
 .btn {
