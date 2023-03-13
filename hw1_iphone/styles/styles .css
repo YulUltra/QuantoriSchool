@@ -1,0 +1,335 @@
+@import url("/hw1_iphone/fonts/fonts.css");
+
+:root {
+  --white: #ffffff;
+  --beige-default: #957e6d;
+
+  --text-color-default: #c8c7cc;
+  --bg-color-default: #f9f9f9;
+  --screen-color-default: #0c0d0b;
+
+  --transition-duration: 0.5s;
+  --opacity-default: 0.8;
+}
+
+.bottom-bar_btn,
+.camera-btn_img,
+.slider-text,
+.slider,
+.time,
+.battery,
+.date,
+.top-btn,
+.signal-icons {
+  visibility: hidden;
+}
+
+.container {
+  background: url("/hw1_iphone/images/background.png") no-repeat;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.iphone {
+  border: 3px solid transparent;
+  border-radius: 36px;
+  width: 290px;
+  height: 596px;
+  position: relative;
+  box-shadow: rgb(0 0 0 / 97%) -8px 2px 34px, rgb(0 0 0 / 47%) -22px 6px 18px;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to top left, var(--beige-default), #a98d76) border-box;
+  display: block;
+  margin: auto;
+  color: var(--white);
+}
+
+.screen {
+  position: absolute;
+  background-size: cover;
+  width: 260px;
+  height: 453px;
+  background-color: var(--screen-color-default);
+  margin: 60px 13px;
+  border: 2px solid var(--screen-color-default);
+  box-shadow: rgb(0 0 0 / 15%) 6px 17px 31px;
+  border-radius: 3px;
+}
+
+.screen:hover {
+  position: absolute;
+  background-size: cover;
+  width: 260px;
+  height: 453px;
+  background-image: url("/hw1_iphone/images/content/background-screen.png");
+  margin: 60px 13px;
+  border: 2px solid var(--screen-color-default);
+  box-shadow: rgb(0 0 0 / 15%) 6px 17px 31px;
+  border-radius: 3px;
+}
+
+.screen:hover .top-btn {
+  visibility: visible;
+}
+
+.tools {
+  z-index: 15;
+  position: absolute;
+  width: 223px;
+  height: 50px;
+  margin-left: 30px;
+  margin-top: 7px;
+}
+
+.front-camera_left {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid rgb(28, 30, 20);
+  background: rgb(15, 15, 14);
+  top: 18px;
+  left: 68px;
+}
+
+.front-camera_top {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.2rem solid #1c1e14;
+  background: #0f0f0e;
+  top: 3px;
+  left: 110px;
+}
+
+.microphone {
+  position: absolute;
+  top: 20px;
+  right: 87px;
+  width: 42px;
+  height: 3px;
+  border-radius: 0.2rem;
+  background: #1d1312;
+  border: 1px solid #9f9796;
+}
+
+.bottom-btn {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to top left, #3c3628, var(--white)) border-box;
+  top: 533px;
+  left: 124px;
+  width: 45px;
+  height: 43px;
+  cursor: pointer;
+  opacity: var(--opacity-default: );
+}
+
+.top-bar {
+  position: absolute;
+  width: 251px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 2px 5px;
+  opacity: var(--opacity-default: );
+}
+
+.signal-icons {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.screen:hover .signal-icons {
+  visibility: visible;
+}
+
+.provider {
+  font-size: 9px;
+  line-height: 0px;
+  padding: 0 2px;
+  font-family: SF-Pro-Medium;
+}
+
+.top-btn {
+  position: absolute;
+  top: 5px;
+  right: 116px;
+  width: 24px;
+  height: 5px;
+  border-radius: 0.2rem;
+  background: var(--bg-color-default: );
+  border: 1px solid var(--text-color-default);
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.top-btn:hover {
+  top: 7px;
+  transition: var(--transition-duration);
+}
+
+.date {
+  text-align: center;
+  font-size: 13px;
+  font-family: SF-Pro-Bold;
+  margin-top: 0;
+  opacity: 0.7;
+}
+
+.screen:hover .date {
+  visibility: visible;
+}
+
+.screen:hover .battery {
+  visibility: visible;
+}
+
+.time {
+  font-size: 56px;
+  font-weight: initial;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+  opacity: var(--opacity-default: );
+  font-family: SF-Pro-Thin;
+}
+
+.screen:hover .time {
+  visibility: visible;
+}
+
+.slider {
+  display: flex;
+  margin-top: 250px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.screen:hover .slider {
+  visibility: visible;
+}
+
+.slider:hover {
+  transition: 0.2s;
+  margin-left: 7px;
+}
+
+.slider-text {
+  font-size: 17px;
+  font-weight: 300;
+  margin-left: 7px;
+  font-family: SF-Pro-Medium;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    90deg,
+    rgb(43, 43, 43) 27%,
+    rgb(20, 20, 20) 51%,
+    rgb(198, 202, 203) 70%
+  );
+}
+
+.screen:hover .slider-text {
+  visibility: visible;
+}
+
+.bottom-bar {
+  display: flex;
+  margin-left: 120px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+}
+
+.camera-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: -48px;
+}
+
+.camera-btn:hover {
+  transition: var(--transition-duration);
+  margin-bottom: -40px;
+}
+
+.camera-btn_img {
+  width: 85%;
+  height: 85%;
+  opacity: 0.5;
+}
+
+.screen:hover .camera-btn_img {
+  visibility: visible;
+}
+
+.bottom-bar_btn {
+  width: 23px;
+  height: 5px;
+  border-radius: 0.2rem;
+  background: var(--bg-color-default);
+  border: 1px solid var(--text-color-default);
+  opacity: 0.3;
+  cursor: pointer;
+  margin-bottom: -46px;
+}
+
+.bottom-bar_btn:hover {
+  margin-bottom: -40px;
+  transition: var(--transition-duration);
+}
+
+.screen:hover .bottom-bar_btn {
+  visibility: visible;
+}
+
+.btn {
+  position: absolute;
+  top: 72px;
+  width: 1.7px;
+  height: 22px;
+  background-color: #b59588;
+  background: radial-gradient(
+    circle,
+    rgba(181, 164, 140, 1) 12%,
+    rgba(194, 164, 142, 0.76234243697479) 74%
+  );
+  left: -3.5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  z-index: 5;
+}
+
+.btn2-left {
+  top: 118px;
+  height: 33px;
+}
+
+.btn3-left {
+  top: 162px;
+  height: 33px;
+}
+
+.btn-right {
+  position: absolute;
+  top: 104px;
+  width: 4px;
+  height: 39px;
+  left: 290px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 5;
+}
