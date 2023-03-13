@@ -280,7 +280,7 @@
   width: 23px;
   height: 5px;
   border-radius: 0.2rem;
-  background: var(--bg-color-default: );
+  background: var(--bg-color-default);
   border: 1px solid var(--text-color-default);
   opacity: 0.3;
   cursor: pointer;
