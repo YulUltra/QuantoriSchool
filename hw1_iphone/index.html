@@ -64,15 +64,9 @@
             </div>
             <div class="calendar-box">
               <h1 class="time" id="time"></h1>
-              <script>
-                var time = new Date();
-                var currentTime = time.getHours() + ":" + time.getMinutes();
-                document.getElementById("time").innerHTML = currentTime;
-              </script>
               <h2 class="date" id="date"></h2>
               <script type="text/javascript">
-                var date = new Date();
-                var month = [
+                const month = [
                   "January",
                   "February",
                   "March",
@@ -86,7 +80,7 @@
                   "November",
                   "December",
                 ];
-                var dayOfWeek = [
+                const dayOfWeek = [
                   "Sunday",
                   "Monday",
                   "Tuesday",
@@ -95,13 +89,15 @@
                   "Friday",
                   "Saturday",
                 ];
-                var currentDate =
-                  dayOfWeek[date.getDay()] +
+                const now = new Date();
+                const currentTime = now.getHours() + ":" + now.getMinutes();
+                const currentDate =
+                  dayOfWeek[now.getDay()] +
                   ", " +
-                  date.getDate() +
+                  now.getDate() +
                   " " +
-                  month[date.getMonth()] +
-                  " ";
+                  month[now.getMonth()];
+                document.getElementById("time").innerHTML = currentTime;
                 document.getElementById("date").innerHTML = currentDate;
               </script>
             </div>

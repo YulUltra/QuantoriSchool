@@ -47,7 +47,6 @@
   display: block;
   margin: auto;
   color: var(--white);
-  z-index: 0;
 }
 
 .screen {
