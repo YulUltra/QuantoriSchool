@@ -1,0 +1,32 @@
+:root {
+  --background-color: #000;
+  --index: calc(1vw+1vh);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper {
+  background: var(--background-color);
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.logo-box {
+  background: #f00;
+  height: calc(var(--index) * 9);
+  width: calc(var(--index) * 17);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  height: calc(var(--index) * 9);
+  width: calc(var(--index) * 17);
+  position: absolute;
+}
