@@ -1,8 +1,21 @@
 :root {
-	--container-width: 199px;
-	--container-height: 109px;
 	margin: 0;
 	padding: 0;
+
+	--container-width: 199px;
+	--container-height: 109px;
+
+	--mint: #56b6b2;
+	--lemon: #eee945;
+	--red: #ee4545;
+	--green: #28bd27;
+	--blue: #4227bd;
+	--purple: #a127bd;
+	--army-green: #434909;
+	--azure: #58b7c7;
+	--orange: #ec8411;
+	--dark-purple: #41005a;
+	--dark-green: #005a01;
 }
 
 body {
