@@ -1,0 +1,112 @@
+:root {
+	--container-width: 199px;
+	--container-height: 109px;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background-size: 100%;
+	background-color: #000;
+	position: relative;
+}
+
+.dvd-container {
+	width: var(--container-width);
+	height: var(--container-height);
+	position: absolute;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	animation: moving 7.9s linear 0s infinite normal, turningon 3s linear forwards;
+}
+
+.dvd-logo {
+	padding-top: 5px;
+	padding-right: 3px;
+	position: absolute;
+}
+
+@keyframes moving {
+	0% {
+		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+		background-color: #f9481d;
+	}
+	10% {
+		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+		background-color: #1d3cf9;
+	}
+	20% {
+		transform: translate3d(-50vw, 0, 0);
+		background-color: #f91dda;
+	}
+	30% {
+		background-color: #1df2f9;
+		transform: translate3d(0, -50vh, 0);
+	}
+	40% {
+		background-color: #f9481d;
+		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+	}
+	50% {
+		background-color: #1d3cf9;
+		transform: translate3d(0, calc(50vh - var(--container-height)), 0);
+	}
+	60% {
+		background-color: #1df2f9;
+		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+	}
+	70 {
+		background-color: #1d3cf9;
+		transform: translate3d(0, -50wh, 0);
+	}
+	80% {
+		background-color: #f9481d;
+		transform: translate3d(-50vw, 0, 0);
+	}
+	90% {
+		background-color: #0xcf9;
+		transform: translate3d(0, -50vh, 0);
+	}
+	100% {
+		background-color: #f91dda;
+		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+	}
+}
+
+@keyframes turningon {
+	0% {
+		transform: scale(1, 0.8) translateZ(0);
+		filter: brightness(30);
+		opacity: 1;
+	}
+
+	3.5% {
+		transform: scale(1, 0.8) translate3d(0, 100%, 0);
+	}
+
+	3.6% {
+		transform: scale(1, 0.8) translate3d(0, -100%, 0);
+		opacity: 1;
+	}
+
+	9% {
+		transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+		filter: brightness(30);
+		opacity: 0;
+	}
+
+	11% {
+		transform: scale(1, 1) translateZ(0);
+		filter: contrast(0) brightness(0);
+		opacity: 0.7;
+	}
+
+	90% {
+		transform: scale(1, 1) translateZ(0);
+		filter: contrast(1) brightness(1.2) saturate(1.3);
+		opacity: 1;
+	}
+}
