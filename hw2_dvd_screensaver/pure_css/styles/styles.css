@@ -30,18 +30,16 @@ body {
 	height: var(--container-height);
 	position: absolute;
 	overflow: hidden;
-	top: 50%;
-	left: 50%;
 	animation: x-moving 2s linear 0.55s infinite alternate,
 		y-moving 3.5s linear 0.55s infinite alternate,
-		colorChanging 20s linear 0.5s infinite, turningon 3s linear forwards;
+		colorChanging 20s linear 0.5s infinite;
 }
 
 .dvd-logo {
 	padding-top: 5px;
 	padding-right: 3px;
 	position: absolute;
-	animation: colorChanging 35s 0.5s infinite;
+	animation: colorChanging 35s 0.5s infinite, turningon 4s linear forwards;
 }
 @keyframes x-moving {
 	from {
