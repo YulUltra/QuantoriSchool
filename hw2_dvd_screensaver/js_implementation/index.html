@@ -74,7 +74,7 @@
 		<audio id="y-play" src="audio/laser.mp3" type="audio/mp3"></audio>
 		<script>
 			;[document.getElementById('x'), document.getElementById('y')].forEach(
-				(el) => {
+				(element) => {
 					element.addEventListener('animationiteration', (event) => {
 						event.animationName === 'x-moving'
 							? document.getElementById('x-play').play()
