@@ -31,61 +31,69 @@ body {
 	height: var(--container-height);
 	position: absolute;
 	overflow: hidden;
-	top: 50%;
-	left: 50%;
-	animation: moving 7.9s linear 0s infinite normal, turningon 3s linear forwards;
+	animation: x-moving 2s linear 0.55s infinite alternate,
+		y-moving 3.5s linear 0.55s infinite alternate,
+		colorChanging 20s linear 0.5s infinite, turningon 3s linear forwards;
 }
 
 .dvd-logo {
 	padding-top: 5px;
 	padding-right: 3px;
 	position: absolute;
+	animation: colorChanging 35s 0.5s infinite;
 }
 
-@keyframes moving {
+@keyframes x-moving {
+	from {
+		left: 0%;
+	}
+	to {
+		left: calc(100vw - var(--container-width));
+	}
+}
+
+@keyframes y-moving {
+	from {
+		top: 0%;
+	}
+	to {
+		top: calc(100vh - var(--container-height));
+	}
+}
+
+@keyframes colorChanging {
 	0% {
-		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
-		background-color: #f9481d;
+		background-color: var(--mint);
 	}
 	10% {
-		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
-		background-color: #1d3cf9;
+		background-color: var(--lemon);
 	}
 	20% {
-		transform: translate3d(-50vw, 0, 0);
-		background-color: #f91dda;
+		background-color: var(--red);
 	}
 	30% {
-		background-color: #1df2f9;
-		transform: translate3d(0, -50vh, 0);
+		background-color: var(--green);
 	}
 	40% {
-		background-color: #f9481d;
-		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+		background-color: var(--blue);
 	}
 	50% {
-		background-color: #1d3cf9;
-		transform: translate3d(0, calc(50vh - var(--container-height)), 0);
+		background-color: var(--purple);
 	}
 	60% {
-		background-color: #1df2f9;
-		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+		background-color: var(--army-green);
 	}
 	70 {
-		background-color: #1d3cf9;
-		transform: translate3d(0, -50wh, 0);
+		background-color: var(--azure);
 	}
 	80% {
-		background-color: #f9481d;
-		transform: translate3d(-50vw, 0, 0);
+		background-color: var(--orange);
 	}
 	90% {
-		background-color: #0xcf9;
-		transform: translate3d(0, -50vh, 0);
+		background-color: var(--dark-purple);
 	}
 	100% {
-		background-color: #f91dda;
-		transform: translate3d(calc(50vw - var(--container-width)), 0, 0);
+		background-color: var(--dark-green);
 	}
 }
 
