@@ -20,13 +20,31 @@ body {
 	background-size: 100%;
 	background-color: #000;
 	position: relative;
+	overflow: hidden;
 	animation: blackScreen 2s linear 1;
+}
+
+.text {
+	position: relative;
+	margin: 50px;
+	font-size: 30px;
+	color: #f00;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+}
+
+.dvd-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 .dvd-item-1 {
 	--width: 199px;
 	--height: 109px;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
 	animation: x-moving 2s linear 0.55s infinite alternate,
 		y-moving 3.5s linear 0.55s infinite alternate,
@@ -45,7 +63,7 @@ body {
 .dvd-item-2 {
 	--width: 100px;
 	--height: 50px;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
 	animation: x-moving 2s linear 0.55s infinite alternate,
 		y-moving 3.5s linear 0.55s infinite alternate,
@@ -55,25 +73,6 @@ body {
 .dvd-logo-2 {
 	--width: 100px;
 	--height: 50px;
-	padding-top: 5px;
-	padding-right: 3px;
-	position: absolute;
-	animation: colorChanging 35s 0.5s infinite;
-}
-
-.dvd-item-3 {
-	--width: 150px;
-	--height: 75px;
-	position: absolute;
-	overflow: hidden;
-	animation: x-moving 2s linear 0.55s infinite alternate,
-		y-moving 3.5s linear 0.55s infinite alternate,
-		colorChanging 20s linear 0.5s infinite, turningon 3s linear forwards;
-}
-
-.dvd-logo-3 {
-	--width: 150px;
-	--height: 75px;
 	padding-top: 5px;
 	padding-right: 3px;
 	position: absolute;

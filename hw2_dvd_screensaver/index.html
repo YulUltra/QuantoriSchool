@@ -12,31 +12,52 @@
 	</head>
 	<body>
 		<div class="dvd-container">
-			<div class="dvd-item dvd-item-1" id="x1">
+			<div class="animatedDvd dvd-item animatedDvd dvd-item-1" id="x1">
 				<img
-					class="dvd-logo dvd-logo-1"
+					class="animatedDvd dvd-logo animatedDvd dvd-logo-1"
 					id="y1"
 					src="./img/lodo.svg"
 					alt="logo"
 				/>
 			</div>
-			<div class="dvd-item dvd-item-2" id="x2">
+		</div>
+		<div class="dvd-container">
+			<div class="animatedDvd dvd-item animatedDvd dvd-item-2" id="x2">
 				<img
-					class="dvd-logo dvd-logo-2"
+					class="animatedDvd dvd-logo animatedDvd dvd-logo-2"
 					id="y2"
 					src="./img/lodo.svg"
 					alt="logo"
 				/>
 			</div>
-			<div class="dvd-item dvd-item-3" id="x3">
-				<img
-					class="dvd-logo dvd-logo-3"
-					id="y3"
-					src="./img/lodo.svg"
-					alt="logo"
-				/>
-			</div>
 		</div>
-		<script></script>
+		<script>
+			const animatedEl = document.querySelectorAll('.animatedDvd')
+			const textTarget = document.querySelector('.text')
+			animatedEl.forEach((element) => {
+				element.addEventListener('animationiteration', (event) => {
+					const laser = new Audio('/hw2_dvd_screensaver/audio/laser.mp3')
+					laser.play().catch((e) => {
+						if (
+							e
+								.toString()
+								.includes("the user didn't interact with the document first")
+						) {
+							textTarget.textContent =
+								'click anywhere on the page to enable sound'
+							setTimeout(() => (textTarget.textContent = ''), 10000)
+						}
+					})
+				})
+			})
+			document.body.addEventListener(
+				'click',
+				() => {
+					textTarget.textContent = 'Thanks!'
+					setTimeout(() => (textTarget.textContent = ''), 3000)
+				},
+				{ once: true }
+			)
+		</script>
 	</body>
 </html>
