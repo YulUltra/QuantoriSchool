@@ -9,12 +9,11 @@ body {
 
 .dvd-container {
 	height: 60vh;
-	widrh: 30vw;
+	width: 30vw;
 	position: absolute;
 	top: 50vh;
 	left: 50vw;
 	transform: translate(-50%, -50%);
-	perspestive: 1000px;
 }
 
 .innerBox {
@@ -45,7 +44,7 @@ body {
 .innerBox .dvd-box {
 	height: 100px;
 	width: 100px;
-	background: #56b6b2;
+	background: #5f9ea0;
 	position: absolute;
 }
 
