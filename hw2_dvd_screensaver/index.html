@@ -33,19 +33,16 @@
 		</div>
 		<script>
 			const animatedEl = document.querySelectorAll('.animatedDvd')
-			const textTarget = document.querySelector('.text')
+			const text = document.querySelector('.text')
 			animatedEl.forEach((element) => {
 				element.addEventListener('animationiteration', (event) => {
 					const laser = new Audio('/hw2_dvd_screensaver/audio/laser.mp3')
 					laser.play().catch((e) => {
 						if (
-							e
-								.toString()
-								.includes("the user didn't interact with the document first")
+							e.toString().includes("The user didn't interact with animation")
 						) {
-							textTarget.textContent =
-								'click anywhere on the page to enable sound'
-							setTimeout(() => (textTarget.textContent = ''), 10000)
+							text.textContent = 'Please, click to play a sound'
+							setTimeout(() => (text.textContent = ''), 100000)
 						}
 					})
 				})
@@ -53,8 +50,8 @@
 			document.body.addEventListener(
 				'click',
 				() => {
-					textTarget.textContent = 'Thanks!'
-					setTimeout(() => (textTarget.textContent = ''), 3000)
+					text.textContent = 'Got it'
+					setTimeout(() => (text.textContent = ''), 10000)
 				},
 				{ once: true }
 			)
