@@ -1,17 +1,21 @@
 body {
-	background: white;
+	background: hsl(0, 0%, 98%);
 	text-align: center;
 	font-family: 'Comfortaa', cursive;
 }
 
+.svg-container {
+	margin-top: 20%;
+}
+
 svg {
-	width: 100px;
-	height: 100px;
+	width: 300px;
+	height: 300px;
 	margin: 20px;
 }
 
 #anim-minute-arrow {
-	animation: chandingMinutes 3s infinite linear;
+	animation: chandingMinutes 2.8s infinite linear;
 	transform-box: fill-box;
 }
 
@@ -25,7 +29,7 @@ svg {
 }
 
 #anim-hour-arrow {
-	animation: changingHours 18s infinite linear;
+	animation: changingHours 12s infinite linear;
 	transform-box: fill-box;
 }
 
