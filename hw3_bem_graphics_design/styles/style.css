@@ -1,11 +1,39 @@
 body {
-  background: white;
-  text-align: center;
-  font-family: "Comfortaa", cursive;
+	background: white;
+	text-align: center;
+	font-family: 'Comfortaa', cursive;
 }
 
 svg {
-  width: 100px;
-  height: 100px;
-  margin: 20px;
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+}
+
+#anim-minute-arrow {
+	animation: chandingMinutes 3s infinite linear;
+	transform-box: fill-box;
+}
+
+@keyframes chandingMinutes {
+	from {
+		transform: rotateZ(0deg);
+	}
+	to {
+		transform: rotateZ(360deg);
+	}
+}
+
+#anim-hour-arrow {
+	animation: changingHours 18s infinite linear;
+	transform-box: fill-box;
+}
+
+@keyframes changingHours {
+	from {
+		transform: rotateZ(0deg);
+	}
+	to {
+		transform: rotateZ(360deg);
+	}
 }
