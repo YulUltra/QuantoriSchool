@@ -14,164 +14,282 @@
 		/>
 	</head>
 	<body>
-		<header class="header">
-			<div class="container">
-				<div class="header__search">
-					<img
-						class="header__search_icon"
-						src="images/search-icon.svg"
-						alt="icon"
-					/>
-					<input
-						class="header__search_input"
-						type="text"
-						placeholder="Search..."
-					/>
+		<div class="wrapper">
+			<header class="header">
+				<div class="container">
+					<div class="header__search">
+						<img
+							class="header__search-icon"
+							src="images/search-icon.svg"
+							alt="icon"
+						/>
+						<input
+							class="header__search-input"
+							type="text"
+							placeholder="Search..."
+						/>
+					</div>
+					<div class="header__icon-bar">
+						<button class="btn header__icon-bar-btn">
+							<img
+								class="header__icon-bar-logo"
+								src="images/Notification.svg"
+								alt="logo"
+							/>
+							<div class="header__icon-bar-status"></div>
+						</button>
+						<button class="btn header__icon-bar-btn">
+							<img
+								class="header__icon-bar-logo"
+								src="images/calendar.svg"
+								alt="logo"
+							/>
+						</button>
+						<button class="btn header__icon-bar-btn">
+							<img
+								class="header__icon-bar-logo"
+								src="images/different.svg"
+								alt="logo"
+							/>
+						</button>
+					</div>
+					<div class="header__avatar">
+						<img
+							class="header__avatar-photo"
+							src="images/photo-person.svg"
+							alt="photo"
+						/>
+						<div class="header__avatar-status"></div>
+					</div>
 				</div>
-				<div class="header__icon-bar">
-					<button class="btn header__icon-bar_btn">
+			</header>
+			<div class="premium">
+				<div class="container">
+					<div class="premium__content">
+						<h1 class="premium__content-title">Unlock premium stats</h1>
+						<h2 class="premium__content-text">
+							Get up to 10TB of storage for a limited time
+						</h2>
+					</div>
+					<button class="premium__btn">
 						<img
-							class="header__icon-bar_logo"
-							src="images/Notification.svg"
-							alt="logo"
+							class="premium__btn-image"
+							src="images/lightning.svg"
+							alt="image"
 						/>
-						<div class="header__icon-bar_status"></div>
+						<span class="premium__btn-text">Upgrade</span>
 					</button>
-					<button class="btn header__icon-bar_btn">
-						<img
-							class="header__icon-bar_logo"
-							src="images/calendar.svg"
-							alt="logo"
-						/>
-					</button>
-					<button class="btn header__icon-bar_btn">
-						<img
-							class="header__icon-bar_logo"
-							src="images/different.svg"
-							alt="logo"
-						/>
-					</button>
-				</div>
-				<div class="header__avatar">
-					<img
-						class="header__avatar_photo"
-						src="images/photo-person.svg"
-						alt="photo"
-					/>
-					<div class="header__avatar_status"></div>
 				</div>
 			</div>
-		</header>
-		<div class="premium">
-			<div class="container">
-				<div class="premium__content">
-					<h1 class="premium__content_title">Unlock premium stats</h1>
-					<h2 class="premium__content_text">
-						Get up to 10TB of storage for a limited time
-					</h2>
-				</div>
-				<button class="premium__btn">
-					<img
-						class="premium__btn_image"
-						src="images/lightning.svg"
-						alt="image"
-					/>
-					<span class="premium__btn_text">Upgrade</span>
-				</button>
-			</div>
-		</div>
-		<div class="cards">
-			<div class="container">
-				<div class="cards__item">
-					<p class="cards__item_title">Revenue</p>
-					<p class="cards__item_digit">$56,945</p>
-					<div class="cards__item_bottom-bar">
-						<div class="condition-container cards__item_condition-container">
-							+45%
+			<div class="cards">
+				<div class="container">
+					<div class="cards__item">
+						<p class="cards__item-title">Revenue</p>
+						<p class="cards__item-digit">$56,945</p>
+						<div class="cards__item-bottom-bar">
+							<div class="condition-container">+45%</div>
+							<p class="cards__item-text">From 4.6%</p>
 						</div>
-						<p class="cards__item_text">From 4.6%</p>
 					</div>
-				</div>
-				<div class="cards__item">
-					<p class="cards__item_title">Users</p>
-					<p class="cards__item_digit">76.8%</p>
-					<div class="cards__item_bottom-bar">
-						<div class="condition-container cards__item_condition-container">
-							-1.7%
+					<div class="cards__item">
+						<p class="cards__item-title">Users</p>
+						<p class="cards__item-digit">76.8%</p>
+						<div class="cards__item-bottom-bar">
+							<div class="condition-container">-1.7%</div>
+							<p class="cards__item-text">From 4.6%</p>
 						</div>
-						<p class="cards__item_text">From 4.6%</p>
 					</div>
-				</div>
-				<div class="cards__item">
-					<p class="cards__item_title">New Signups</p>
-					<p class="cards__item_digit">116</p>
-					<div class="cards__item_bottom-bar">
-						<div class="condition-container cards__item_condition-container">
-							0.00
+					<div class="cards__item">
+						<p class="cards__item-title">New Signups</p>
+						<p class="cards__item-digit">116</p>
+						<div class="cards__item-bottom-bar">
+							<div class="condition-container">0.00</div>
+							<p class="cards__item-text"></p>
 						</div>
-						<p class="cards__item_text"></p>
 					</div>
-				</div>
-				<div class="cards__item">
-					<p class="cards__item_title">Retention</p>
-					<p class="cards__item_digit">12.67%</p>
-					<div class="cards__item_bottom-bar">
-						<div class="condition-container cards__item_condition-container">
-							+0.6%
+					<div class="cards__item">
+						<p class="cards__item-title">Retention</p>
+						<p class="cards__item-digit">12.67%</p>
+						<div class="cards__item-bottom-bar">
+							<div class="condition-container">+0.6%</div>
+							<p class="cards__item-text">From 4.6%</p>
 						</div>
-						<p class="cards__item_text">From 4.6%</p>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="chart">
-			<div class="container">
-				<div class="top-bar chart__top-bar">
-					<p class="chart_top-bar_title">Perfomance</p>
-					<button class="chart_top-bar_btn">
-						<img src="images/top-bar_dots.svg" alt="btn image" />
-					</button>
-				</div>
+			<div class="chart">
+				<div class="container">
+					<div class="top-bar">
+						<p class="top-bar__title">Perfomance</p>
+						<button class="top-bar__btn">
+							<img src="images/top-bar_dots.svg" alt="btn image" />
+						</button>
+					</div>
 
-				<div class="chart__inner">
-					<div class="chart__inner-container">
-						<div class="chart__inner_y-axis">
-							<p>0</p>
-							<p>100</p>
-							<p>200</p>
-							<p>300</p>
-							<p>400</p>
+					<div class="chart__inner">
+						<div class="chart__inner-container">
+							<div class="chart__inner-y-axis">
+								<p>0</p>
+								<p>100</p>
+								<p>200</p>
+								<p>300</p>
+								<p>400</p>
+							</div>
+							<img
+								class="chart__inner-diagram"
+								src="images/chart.svg"
+								alt="diagram"
+							/>
 						</div>
-						<img
-							class="chart__inner_diagram"
-							src="images/chart.svg"
-							alt="diagram"
-						/>
+						<div class="chart__inner-x-axis">
+							<p>Sun</p>
+							<p>Mon</p>
+							<p>Tue</p>
+							<p>Wed</p>
+							<p>Thu</p>
+							<p>Fri</p>
+							<p>Sat</p>
+						</div>
 					</div>
-					<div class="chart__inner_x-axis">
-						<p>Sun</p>
-						<p>Mon</p>
-						<p>Tue</p>
-						<p>Wed</p>
-						<p>Thu</p>
-						<p>Fri</p>
-						<p>Sat</p>
-					</div>
-				</div>
-				<div class="chart__social-media">
-					<div class="chart__social-media--instagram">
-						<p class="chart__social-media_name">Instagram</p>
-						<div class="chart__social-media_status"></div>
-					</div>
-					<div class="chart__social-media--facebook">
-						<p class="chart__social-media_name">Facebook</p>
-						<div class="chart__social-media_status"></div>
+					<div class="chart__social-media">
+						<div class="chart__social-media_instagram">
+							<p class="chart__social-media-name">Instagram</p>
+							<div class="chart__social-media-circle"></div>
+						</div>
+						<div class="chart__social-media_facebook">
+							<p class="chart__social-media-name">Facebook</p>
+							<div class="chart__social-media-circle"></div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="datatable">
+				<div class="container">
+					<div class="top-bar">
+						<p class="top-bar__title">Installed apps</p>
+						<button class="top-bar__btn">
+							<img src="images/top-bar_dots.svg" alt="btn image" />
+						</button>
+					</div>
+					<table class="datatable__inner">
+						<thead class="datatable__items">
+							<tr>
+								<th scope="col">Source</th>
+								<th scope="col">Amount</th>
+								<th scope="col">Status</th>
+								<th scope="col">User ID</th>
+								<th scope="col">Joined</th>
+								<th scope="col">Group</th>
+							</tr>
+						</thead>
+						<tbody class="datatable__body">
+							<tr class="datatable__row">
+								<th scope="row">
+									<img
+										class="datatable__logo"
+										src="images/Zepplin.svg"
+										alt="logo"
+									/>
+									<p class="datatable__name">Zepplin</p>
+								</th>
+								<td>686.00</td>
+								<td><div class="condition-container">Active</div></td>
+								<td>114423</td>
+								<td>October</td>
+								<td>Design</td>
+							</tr>
+							<tr class="datatable__row">
+								<th scope="row">
+									<img
+										class="datatable__logo"
+										src="images/Figma.svg"
+										alt="logo"
+									/>
+									<p class="datatable__name">Figma</p>
+								</th>
+								<td>864.00</td>
+								<td><div class="condition-container">Pending</div></td>
+								<td>76223</td>
+								<td>June</td>
+								<td>Finance</td>
+							</tr>
+							<tr class="datatable__row">
+								<th scope="row">
+									<img
+										class="datatable__logo"
+										src="images/Meta.svg"
+										alt="logo"
+									/>
+									<p class="datatable__name">Meta</p>
+								</th>
+								<td>176.00</td>
+								<td><div class="condition-container">Cancelled</div></td>
+								<td>89453</td>
+								<td>March</td>
+								<td>Coding</td>
+							</tr>
+
+							<tr class="datatable__row">
+								<th scope="row">
+									<img
+										class="datatable__logo"
+										src="images/Angular.svg"
+										alt="logo"
+									/>
+									<p class="datatable__name">Angular</p>
+								</th>
+								<td>49.00</td>
+								<td><div class="condition-container">Active</div></td>
+								<td>11467</td>
+								<td>February</td>
+								<td>Marketing</td>
+							</tr>
+							<tr class="datatable__row">
+								<th scope="row">
+									<img
+										class="datatable__logo"
+										src="images/Vue.svg"
+										alt="logo"
+									/>
+									<p class="datatable__name">Vue</p>
+								</th>
+								<td>999.00</td>
+								<td><div class="condition-container">Active</div></td>
+								<td>67385</td>
+								<td>October</td>
+								<td>Finance</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<a class="pagination__arrow-left" href="#">
+							<img
+								class="pagination_arrow-icon"
+								src="images/arrow-left.svg"
+								alt="arrow icon"
+							/>
+						</a>
+						<ul class="pagination__list">
+							<ul class="pagination__list-item">
+								<a
+									class="pagination__list-num pagination__list-num_active"
+									href="#"
+									>1/15</a
+								>
+							</ul>
+						</ul>
+						<a class="pagination__arrow-right" href="#">
+							<img
+								class="pagination__arrow-icon"
+								src="images/arrow-right.svg"
+								alt="arrow icon"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="sidebar"></div>
+			<script src="js/main.min.js"></script>
 		</div>
-		<div class="datatable"></div>
-		<div class="sidebar"></div>
-		<script src="js/main.min.js"></script>
 	</body>
 </html>
