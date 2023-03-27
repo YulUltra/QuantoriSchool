@@ -16,47 +16,40 @@
 	<body>
 		<div class="wrapper">
 			<header class="header">
-				<div class="container">
-					<div class="header__search">
+				<form class="header__search">
+					<button class="header__search-icon">
+						<img src="images/search-icon.svg" alt="icon" />
+					</button>
+					<input
+						class="header__search-input"
+						type="text"
+						placeholder="Search..."
+					/>
+				</form>
+
+				<div class="header__icon-bar">
+					<button class="header__icon-bar-btn">
 						<img
-							class="header__search-icon"
-							src="images/search-icon.svg"
-							alt="icon"
+							class="header__icon-bar-logo"
+							src="images/Notification.svg"
+							alt="logo"
 						/>
-						<input
-							class="header__search-input"
-							type="text"
-							placeholder="Search..."
-						/>
-					</div>
-					<div class="icon-bar">
-						<button class="icon-bar-btn">
-							<img
-								class="icon-bar-logo"
-								src="images/Notification.svg"
-								alt="logo"
-							/>
-							<div class="icon-bar-status"></div>
-						</button>
-						<button class="icon-bar-btn">
-							<img class="icon-bar-logo" src="images/calendar.svg" alt="logo" />
-						</button>
-						<button class="icon-bar-btn">
-							<img
-								class="icon-bar-logo"
-								src="images/different.svg"
-								alt="logo"
-							/>
-						</button>
-					</div>
-					<div class="header__avatar">
+						<div class="header__icon-bar-status"></div>
+					</button>
+					<button class="header__icon-bar-btn">
+						<img src="images/calendar.svg" alt="logo" />
+					</button>
+					<button class="header__icon-bar-btn">
+						<img src="images/different.svg" alt="logo" />
+					</button>
+					<a class="header__icon-bar-avatar" href="#">
 						<img
-							class="header__avatar-photo"
+							class="header__icon-bar-avatar-photo"
 							src="images/photo-person.svg"
 							alt="photo"
 						/>
-						<div class="header__avatar-status"></div>
-					</div>
+						<div class="header__icon-bar-avatar-status"></div>
+					</a>
 				</div>
 			</header>
 			<div class="premium">
