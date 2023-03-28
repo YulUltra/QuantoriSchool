@@ -4,13 +4,11 @@ body {
 }
 
 body {
-  font-size: 14px;
+  @extend %default-font;
+  background-color: $body-background;
   line-height: 22px;
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
   overflow-x: hidden;
   min-width: 375px;
-  background-color: $default-background;
 }
 
 .wrapper {
