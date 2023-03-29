@@ -6,8 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Clonify</title>
 		<link rel="stylesheet" href="css/style.min.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
 			rel="stylesheet"
@@ -16,7 +14,7 @@
 	<body>
 		<div class="wrapper">
 			<aside class="sidebar">
-				<div class="sidebar_inner">
+				<div class="sidebar__inner">
 					<img class="sidebar__logo" src="images/Logo.svg" alt="company logo" />
 					<div class="sidebar__chapter">
 						<h2 class="sidebar__title">D A S H B O A R D</h2>
@@ -30,10 +28,13 @@
 									/>
 									<a class="sidebar__category-title" href="#"> Dashboard</a>
 								</div>
-								<a class="sidebar__category-arrow" href="#">
+								<a
+									class="sidebar__category-arrow sidebar__category-item--hover"
+									href="#"
+								>
 									<img
 										class="sidebar__arrow-icon"
-										src="images/arrow-up.svg"
+										src="images/arrow-down.svg"
 										alt="arrow icon"
 									/>
 								</a>
@@ -156,6 +157,7 @@
 					</button>
 				</div>
 			</aside>
+
 			<div class="main-area">
 				<div class="header__container">
 					<div class="header__additional-line">
@@ -177,7 +179,6 @@
 								placeholder="Search..."
 							/>
 						</form>
-
 						<div class="header__icon-bar">
 							<button class="header__icon-bar-btn">
 								<img
@@ -202,6 +203,7 @@
 						</div>
 					</header>
 				</div>
+
 				<div class="premium">
 					<div class="premium__content">
 						<h1 class="premium__content-title">Unlock premium stats</h1>
@@ -218,6 +220,7 @@
 						<span class="premium__btn-text">Upgrade</span>
 					</button>
 				</div>
+
 				<div class="cards">
 					<div class="cards__item">
 						<p class="cards__item-title">Revenue</p>
@@ -268,6 +271,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="chart">
 					<div class="chart__top-bar">
 						<p class="chart__top-bar-title">Perfomance</p>
@@ -275,7 +279,6 @@
 							<img src="images/top-bar_dots.svg" alt="btn image" />
 						</button>
 					</div>
-
 					<div class="chart__inner">
 						<div class="chart__inner-diagram">
 							<img
@@ -300,6 +303,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="datatable">
 					<div class="datatable__top-bar">
 						<p class="datatable__top-bar-title">Installed apps</p>
@@ -423,27 +427,11 @@
 					</div>
 					<div class="datatable__pagination">
 						<a class="datatable__pagination-arrow-left" href="#">
-							<img
-								class="datatable__pagination-arrow-icon"
-								src="images/arrow-left.svg"
-								alt="arrow icon"
-							/>
+							<img src="images/arrow-left.svg" alt="arrow icon" />
 						</a>
-						<ul class="datatable__pagination-list">
-							<ul class="datatable__pagination-list-item">
-								<a
-									class="datatable__pagination-list-num datatable__pagination-list-num--active"
-									href="#"
-									>1/15</a
-								>
-							</ul>
-						</ul>
+						<p class="datatable__pagination-list">1/15</p>
 						<a class="datatable__pagination-arrow-right" href="#">
-							<img
-								class="datatable__pagination-arrow-icon"
-								src="images/arrow-right.svg"
-								alt="arrow icon"
-							/>
+							<img src="images/arrow-right.svg" alt="arrow icon" />
 						</a>
 					</div>
 				</div>

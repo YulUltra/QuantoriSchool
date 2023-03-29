@@ -45,7 +45,6 @@ function building() {
   return src(
     [
       "app/css/style.min.css",
-      "app/fonts/**/*",
       "app/js/main.min.js",
       "app/**/*.html",
     ],
