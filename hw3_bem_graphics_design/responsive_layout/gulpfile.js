@@ -9,7 +9,7 @@ const clean = require("gulp-clean")
 const imagemin = require("gulp-imagemin")
 
 function scripts() {
-  return src(["src/js/main.js"])
+  return src(["dist/js/main.js"])
     .pipe(concat("main.min.js"))
     .pipe(uglify())
     .pipe(dest("dist/js"))
@@ -17,7 +17,7 @@ function scripts() {
 }
 
 function styles() {
-  return src("src/scss/style.scss")
+  return src("dist/scss/style.scss")
     .pipe(
       autoprefixer({ overrideBrowserslist: ["last 10 version"], grid: true })
     )
@@ -49,7 +49,7 @@ function building() {
       "src/**/*.html",
     ],
     {
-      base: "app",
+      base: "src",
     }
   ).pipe(dest("dist"))
 }
