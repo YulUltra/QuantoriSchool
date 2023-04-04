@@ -12,7 +12,7 @@ function scripts() {
   return src(["src/js/main.js"])
     .pipe(concat("main.min.js"))
     .pipe(uglify())
-    .pipe(dest("src/js"))
+    .pipe(dest("dist/js"))
     .pipe(browserSync.stream())
 }
 
@@ -23,7 +23,7 @@ function styles() {
     )
     .pipe(concat("style.min.css"))
     .pipe(scss({ outputStyle: "compressed" }))
-    .pipe(dest("src/css"))
+    .pipe(dest("dist/css"))
     .pipe(browserSync.stream())
 }
 

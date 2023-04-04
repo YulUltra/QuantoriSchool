@@ -34,9 +34,6 @@ body {
 	font-weight: 400;
 }
 .wrapper {
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
 	display: -ms-grid;
 	display: grid;
 	-ms-grid-columns: -webkit-min-content 1fr;
