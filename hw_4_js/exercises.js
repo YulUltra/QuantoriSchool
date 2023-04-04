@@ -228,7 +228,7 @@ const get2SmallestValues = (numbers) => {
  */
 
 const getFullName = (user) => {
-  return 'Name: ' + user.firstName + ' ' + user.patronymic + ' ' + user.secondName
+  return `Name: ${user.firstName} ${user.patronymic} ${user.secondName}`
 }
 
 /**
@@ -286,7 +286,7 @@ const getCharacterNames = (characters, franchise) => {
  */
 
 const getSmallestRow = (numbers) => {
-  return numbers.reduce((acc, current) => acc.concat([Math.min(...current)]), [])
+  return numbers.map(row => Math.min(...row))
 }
 
 /**
@@ -411,5 +411,8 @@ const getFlattenedArray = (numbers) => {
  */
 
 const getNotUniqueValues = (numbers) => {
-  return numbers.filter((n, idx) => numbers.indexOf(n) != idx)
+  return numbers.reduce(
+    (acc, n, idx) => idx != numbers.lastIndexOf(n) && !acc.includes(n) ? acc.concat(n) : acc,
+    [],
+  )
 }
