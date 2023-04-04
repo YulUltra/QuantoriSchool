@@ -89,7 +89,7 @@ const getShorterStrings = (strings, characters = 20) => {
  */
 
 const getComputedStrings = (fish) => {
-  return fish.map(({ name, likes }) => name + ' likes ' + likes)
+  return fish.map(({ name, likes }) => `${name} likes ${likes}`)
 }
 
 /**
