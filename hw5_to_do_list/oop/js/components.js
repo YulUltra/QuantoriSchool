@@ -43,7 +43,7 @@ class List extends Component {
 
     removeItem = item => {
         let items = [...this.state.items]
-        const idx = items.findIndex(i => { i.rawItem == item.rawItem })
+        const idx = items.findIndex(i => i.rawItem === item.rawItem)
         items.splice(idx, 1)
         this.setState({
             items: items
