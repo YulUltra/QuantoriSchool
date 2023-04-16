@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@400;500;700;800&display=swap');
+
+:root {
+	--white-1: #f5f5f5;
+	--white-2: #ffffff;
+	--black: #000000;
+	--light-black: #1d1d1d;
+	--blue: #0053cf;
+	--orange: #ea8c00;
+	--green: #639462;
+	--purple: #9747ff;
+	--gray: #838383;
+	--light-gray-1: #d2d2d2;
+	--light-gray-2: #d3d3d3;
+	--light-blue: #3c86f4;
+	--light-orange: #ffecc7;
+	--light-purple: #e8d7ff;
+	--light-green: #e2f7e2;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+h1,
+h2,
+.search__input,
+.search__btn,
+.checkbox__task-title,
+.date,
+.modal__input,
+.modal__submit-btn,
+.modal__date-input {
+	font-family: 'Nunito';
+	font-style: normal;
+}
+
+h1 {
+	font-size: 32px;
+	line-height: 36px;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 33px;
+	font-weight: 700;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 33%;
+	top: 27%;
+}
+
+.search__input {
+	background: var(--white-1);
+	border: 1px solid var(--light-gray-1);
+	border-radius: 12px;
+
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+
+	width: 752px;
+	height: 52px;
+	padding: 16px 21px;
+}
+
+.search__input:active {
+	color: var(--black);
+}
+
+.search__container {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	margin-bottom: 29px;
+	margin-top: 34px;
+}
+
+.search__btn {
+	background: rgba(60, 134, 244, 0.15);
+	color: var(--blue);
+	border: none;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 20px;
+
+	width: 158px;
+	height: 52px;
+	padding: 16px 32px;
+}
+
+.checkbox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin: 6px 0;
+}
+
+.checkbox--completed .checkbox__task-title {
+	color: var(--gray);
+}
+
+.checkbox--completed .label {
+	background: var(--white-1);
+	color: var(--gray);
+}
+
+.checkbox--completed .checkbox__delete-btn {
+	display: none;
+}
+
+.checkbox--completed .checkbox__input {
+	accent-color: var(--gray);
+}
+
+.checkbox__container {
+	display: flex;
+	gap: 23px;
+}
+
+.checkbox__container-param {
+	display: flex;
+	align-items: flex-end;
+
+	gap: 8px;
+	margin-top: 9px;
+}
+
+.checkbox__input {
+	border: 1px solid var(--gray);
+	width: 21px;
+}
+
+.checkbox__task-title {
+	color: var(--light-black);
+
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	margin: 0;
+}
+
+.checkbox__delete-btn {
+	background-image: url('../images/bin.svg');
+	border: none;
+	display: flex;
+	background-repeat: no-repeat;
+
+	width: 16px;
+	height: 16px;
+}
+
+.checkbox__delete-btn:hover {
+	background-image: url('../images/bin-hover.svg');
+}
+
+.checkbox__delete-btn:active {
+	background-image: url('../images/bin-active.svg');
+}
+
+.label {
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	border: none;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 15px;
+	padding: 2px 8px;
+}
+
+.label-home {
+	background: var(--light-green);
+	color: var(--green);
+}
+
+.label-home:focus {
+	border: 1px solid var(--green);
+}
+
+.label-work {
+	background: var(--light-purple);
+	color: var(--purple);
+}
+
+.label-work:focus {
+	border: 1px solid var(--purple);
+}
+
+.label-health {
+	background: rgba(60, 134, 244, 0.31);
+	color: var(--blue);
+}
+
+.label-health:focus {
+	border: 1px solid var(--blue);
+}
+
+.label-other {
+	background: var(--light-orange);
+	color: var(--orange);
+}
+
+.label-other:focus {
+	border: 1px solid var(--orange);
+}
+
+.date {
+	color: var(--gray);
+
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.modal {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 24px;
+	background: var(--white-2);
+
+	width: 524px;
+	height: 371px;
+	padding: 24px;
+}
+
+.modal:active .wrapper {
+	display: none;
+}
+
+.modal__title {
+	display: flex;
+	justify-content: center;
+}
+
+.modal__input {
+	background: var(--white-1);
+	border: 1px solid var(--light-gray-1);
+	border-radius: 12px;
+
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+
+	width: 477px;
+	height: 52px;
+	padding: 0 21px;
+}
+
+.modal__input:active {
+	color: var(--black);
+}
+
+.modal__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-top: 18px;
+	margin-bottom: 102px;
+}
+
+.modal__label-container {
+	display: flex;
+	gap: 12px;
+}
+
+.modal__date-input {
+	background: var(--white-2);
+	border: 2px solid rgba(60, 134, 244, 0.6);
+	border-radius: 12px;
+
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+
+	padding: 10px 16px;
+}
+
+.modal__date-input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.modal__btn-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+	color: var(--blue);
+	border: none;
+	border-radius: 12px;
+
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 20px;
+
+	padding: 16px 32px;
+	width: 227.5px;
+	height: 52px;
+}
+
+.modal__cancel-btn {
+	background: var(--white);
+}
+
+.modal__submit-btn {
+	background: rgba(60, 134, 244, 0.15);
+}
+
+.modal__submit-btn:hover {
+	background: rgba(60, 134, 244, 0.35);
+}
+
+.modal__submit-btn:active {
+	background: var(--light-blue);
+	color: var(--white-2);
+}
+
+.modal__submit-btn:disabled {
+	background: var(--light-gray-2);
+	color: var(--white-2);
+}
