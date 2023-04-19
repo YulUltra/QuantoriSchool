@@ -1,0 +1,74 @@
+{
+  "tasks": [
+    {
+      "name": "Take a deep breath and set an intention for the day.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 1
+    },
+    {
+      "name": "Take a quick walk around the block for a mental break.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 2
+    },
+    {
+      "name": "Drink a glass of water and refill my bottle for the day.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 3
+    },
+    {
+      "name": "Send a quick text to a friend to check in and say hello.",
+      "label": "other",
+      "date": "2023-04-19",
+      "isCompleted": true,
+      "id": 4
+    },
+    {
+      "name": "Brush my teeth.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": true,
+      "id": 5
+    },
+    {
+      "name": "Do a 1-minute plank.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "name": "Take a quick dance break to a favorite song.",
+      "label": "other",
+      "date": "2023-04-20",
+      "isCompleted": false,
+      "id": 7
+    },
+    {
+      "name": "Make a cup of tea or coffee.",
+      "label": "home",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 8
+    },
+    {
+      "name": "Take a quick walk around the block for a mental break.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": true,
+      "id": 9
+    },
+    {
+      "name": "Schedule a meeting or call with a client or coworker.",
+      "label": "work",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 10
+    }
+  ]
+}

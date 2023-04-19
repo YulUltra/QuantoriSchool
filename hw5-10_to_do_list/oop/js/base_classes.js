@@ -1,4 +1,5 @@
 class Component {
+
     constructor(props) {
         this.props = props
         this.state = {}
@@ -12,10 +13,6 @@ class Component {
 
     setState(state) {
         this.state = { ...this.state, ...state }
-        this.update()
-    }
-
-    update() {
         this.render()
     }
 
@@ -29,7 +26,7 @@ class Component {
             element.append(
                 ...this.children.map(
                     childComponent => {
-                        let renderedComponent = ''
+                        let renderedComponent
                         if (childComponent instanceof Component) {
                             renderedComponent = childComponent.render()
                         } else {
@@ -41,9 +38,5 @@ class Component {
             )
         }
         return element
-    }
-
-    hasSavedState() {
-        return localStorage.getItem(this.props.storageKey) != null
     }
 }
