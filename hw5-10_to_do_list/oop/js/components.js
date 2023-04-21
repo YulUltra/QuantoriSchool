@@ -28,100 +28,58 @@ class List extends Component {
     constructor(props) {
         super({ ...props, elementType: 'ul' })
         this.state = {
-            items: this.hasSavedState() ? this.retrieveFromLocalStorage() : []
+            items: props.initItems || [],
+            displayItemsBySubstring: '',
         }
         this.title = new Header({ text: props.title, level: 2 })
     }
 
     updateDOM() {
-        this.saveToLocalStorage()
         this.children = [
             this.title,
-            ...this.state.items
+            ...this.state.items.map(
+                item => new ListItem({
+                    isDisplayed: item.name.toLowerCase().includes(this.state.displayItemsBySubstring),
+                    item: item,
+                    cssClass: this.props.itemCssClass,
+                    onCheckboxClick: this.props.onCheckboxClick,
+                    deleteItem: this.props.deleteItem,
+                })
+            )
         ]
     }
-
-    removeItem = item => {
-        let items = [...this.state.items]
-        const idx = items.findIndex(i => i.rawItem === item.rawItem)
-        items.splice(idx, 1)
-        this.setState({
-            items: items
-        })
-    }
-
-    addItem = item => {
-        const rawItem = item instanceof ListItem ? item.rawItem : item
-        this.setState({
-            items: this.state.items.concat(this.wrapRawItem(rawItem))
-        })
-    }
-
-    wrapRawItem = rawItem => new ListItem({
-        rawItem: rawItem,
-        removeItem: this.removeItem,
-        cssClass: this.props.itemCssClass,
-        onItemCheckboxClick: this.props.onItemCheckboxClick,
-    })
-
-
-    displayBySubstring = substring => {
-        this.state.items.forEach(
-            item => {
-                item.setState({
-                    isDisplayed: item.name.text.toLowerCase().includes(substring)
-                })
-            }
-        )
-    }
-
-    saveToLocalStorage() {
-        const rawItems = this.state.items.map(item => item.rawItem)
-        localStorage.setItem(this.props.storageKey, JSON.stringify(rawItems))
-    }
-
-    retrieveFromLocalStorage() {
-        const rawItems = JSON.parse(localStorage.getItem(this.props.storageKey))
-        return rawItems.map(rawItem => this.wrapRawItem(rawItem))
-    }
 }
-
 
 
 class ListItem extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            isDisplayed: true
-        }
-        this.rawItem = props.rawItem
-        this.rawItem.isCompleted = this.rawItem.isCompleted || false
         this.checkbox = new Checkbox({
-            onChange: () => props.onItemCheckboxClick(this),
+            onChange: () => props.onCheckboxClick(this.props.item),
             cssClass: 'checkbox__input',
-            isChecked: this.rawItem.isCompleted,
+            isChecked: props.item.isCompleted,
         })
         this.name = new Header({
             cssClass: 'checkbox__task-title',
-            text: this.rawItem.name,
+            text: props.item.name,
             level: 3
         })
         this.label = new Component({
-            cssClass: `label label-${this.rawItem.label}`,
-            children: [this.rawItem.label]
+            cssClass: `label label-${props.item.label}`,
+            children: [props.item.label]
         })
         this.date = new Component({
             cssClass: 'date',
-            children: [this.formatDate(this.rawItem.date)]
+            children: [this.formatDate(props.item.date)]
         })
-        this.removeButton = new Button({
-            onClick: () => props.removeItem(this),
+        this.deleteButton = new Button({
+            onClick: () => props.deleteItem(this.props.item.id),
             cssClass: 'checkbox__delete-btn'
         })
     }
 
     updateDOM() {
-        if (this.state.isDisplayed) {
+        if (this.props.isDisplayed) {
             this.display()
         } else {
             this.hide()
@@ -143,7 +101,7 @@ class ListItem extends Component {
                     })
                 ]
             }),
-            this.removeButton,
+            this.deleteButton,
         ]
     }
 
@@ -155,16 +113,8 @@ class ListItem extends Component {
         this.element.style.display = 'none'
     }
 
-    markAsCompleted = () => {
-        this.rawItem.isCompleted = true
-    }
-
-    markAsActive = () => {
-        this.rawItem.isCompleted = false
-    }
-
     formatDate = (dateLikeString) => {
-        if (dateLikeString == '') {
+        if (dateLikeString === '') {
             return dateLikeString
         }
         const date = new Date(dateLikeString)
@@ -192,23 +142,19 @@ class ListItem extends Component {
             "Nov",
             "Dec",
         ]
-        let formattedDate = ''
-        if (date.getFullYear() == today.getFullYear() &&
-            date.getMonth() == today.getMonth() &&
-            date.getDate() == today.getDate()
-        ) {
+        let formattedDate
+        if (datesAreEqual(date, today)) {
             formattedDate = 'Today'
         } else if (
-            date.getFullYear() == today.getFullYear() &&
-            date.getMonth() == today.getMonth() &&
-            date.getDate() - today.getDate() == 1
+            date.getFullYear() === today.getFullYear() &&
+            date.getMonth() === today.getMonth() &&
+            date.getDate() - today.getDate() === 1
         ) {
             formattedDate = 'Tomorrow'
         } else {
-            console.log(date.getDay())
             formattedDate = `${dayOfWeek[date.getDay()]}, ${date.getDate()} ${month[date.getMonth()]}`
         }
-        if (date.getFullYear() != today.getFullYear()) {
+        if (date.getFullYear() !== today.getFullYear()) {
             formattedDate = `${formattedDate}, ${date.getFullYear()}`
         }
         return formattedDate
@@ -232,7 +178,7 @@ class AddItemModalWindow extends Component {
         this.labelButtons = ['health', 'work', 'home', 'other'].map(
             label => new Button({
                 text: label,
-                cssClass: 'label label-' + label,
+                cssClass: `label label-${label}`,
                 onClick: () => {
                     this.label = label
                 }
@@ -246,13 +192,14 @@ class AddItemModalWindow extends Component {
         this.addItemOnButton = new Button({
             cssClass: 'btn modal__submit-btn',
             text: 'Add Task',
-            onClick: e => {
+            onClick: () => {
                 this.hide()
                 this.addItemOnButton.disable()
                 this.addItem({
                     name: this.textInput.element.value,
                     label: this.label || '',
                     date: this.dateInput.element.value || '',
+                    isCompleted: false
                 })
             },
             isDisabledByDefault: true,
@@ -295,6 +242,64 @@ class AddItemModalWindow extends Component {
     }
 }
 
+class TodayTasksModalWindow extends Component {
+    constructor(props) {
+        super(props)
+        this.title = new Header({ cssClass: 'today-modal__title', text: 'Good Morning', level: 2 })
+        this.cancelOnButton = new Button({
+            cssClass: 'btn today-modal__submit-btn',
+            text: 'Ok',
+            onClick: this.hide
+        })
+
+        const storageKey = 'todayTasksModalWindowLastShowDate'
+        const state = localStorage.getItem(storageKey)
+        const today = new Date()
+        if (state && datesAreEqual(today, new Date(state)) || !props.items.length) {
+            this.hide()
+        } else {
+            this.show()
+            localStorage.setItem(storageKey, stringifyDate(today))
+        }
+    }
+
+    updateDOM() {
+        this.children = [
+            this.title,
+            new Component({
+                cssClass: 'today-modal__container',
+                children: [
+                    'You have the next planned tasks for today:'
+                ]
+            }),
+            new Component({
+                cssClass: 'today-modal__list',
+                children: this.props.items.map(
+                    item => new Component({
+                        cssClass: 'today-modal__item',
+                        children: [item.name]
+                    })
+                )
+            }),
+            new Component({
+                cssClass: 'today-modal__btn-container',
+                children: [
+                    this.cancelOnButton
+                ]
+            })
+        ]
+    }
+
+    hide = () => {
+        this.element.style.display = 'none'
+    }
+
+    show = () => {
+        this.element.style.display = 'block'
+    }
+}
+
+
 
 class Header extends Component {
     constructor(props) {
@@ -335,7 +340,7 @@ class DateInput extends Input {
     }
 
     clear() {
-        const [today] = new Date().toISOString().split('T')
+        const [today] = stringifyDate(new Date())
         this.element.value = today
     }
 
@@ -357,5 +362,13 @@ class Checkbox extends Input {
         if (props.isChecked) {
             this.element.checked = true
         }
+    }
+}
+
+
+class Image extends Component {
+    constructor(props) {
+        super({ ...props, elementType: 'img' })
+        this.element.src = props.src
     }
 }
