@@ -131,7 +131,7 @@ async function run() {
     })
     const weatherState = await weatherAPI.getWeatherState()
 
-    const taskRepo= new TaskRepository({ storageHost: 'localhost', storagePort: 3000 })
+    const taskRepo = new TaskRepository({ storageHost: 'localhost', storagePort: 3000 })
     const initTasks = await taskRepo.getAll()
 
 
