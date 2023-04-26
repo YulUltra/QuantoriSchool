@@ -128,4 +128,25 @@ h1 {
     left: 25%;
     top: 15%;
 }
+.weather__container {
+    display: flex;
+    align-items: center;
+    color: var(--gray);
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    gap: 81.5px;
+}
+
+.weather__temperature {
+    display: flex;
+    align-items: center;
+    color: var(--black);
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 36px;
+    gap: 23px;
+}
 
