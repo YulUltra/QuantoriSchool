@@ -1,0 +1,131 @@
+.weather__temperature,
+.weather__container,
+.search__input,
+.search__btn {
+    font-family: 'Nunito';
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+.search__input {
+    background: var(--white-1);
+    border: 1px solid var(--light-gray-1);
+    border-radius: 12px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    width: 752px;
+    height: 52px;
+    padding: 16px 21px;
+}
+
+.search__input:active {
+    color: var(--black);
+}
+
+.checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 6px 0;
+}
+
+.checkbox--completed .checkbox__task-title {
+    color: var(--gray);
+}
+
+.checkbox--completed .label {
+    background: var(--white-1);
+    color: var(--gray);
+}
+
+.checkbox--completed .checkbox__delete-btn {
+    display: none;
+}
+
+.checkbox--completed .checkbox__input {
+    accent-color: var(--gray);
+}
+
+.modal {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
+    background: var(--white-2);
+    border: 1px solid var(--light-gray-2);
+
+    width: 524px;
+    height: 371px;
+    padding: 24px;
+}
+
+.modal:active .wrapper {
+    display: none;
+}
+
+.search__btn {
+    background: rgba(60, 134, 244, 0.15);
+    color: var(--blue);
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+
+    width: 158px;
+    height: 52px;
+    padding: 16px 32px;
+}
+
+.today-modal {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
+    background: var(--white-2);
+
+    width: 524px;
+    height: 349px;
+
+    border: 1px solid var(--light-gray-2);
+    padding: 24px;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.search__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 29px;
+    margin-top: 34px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+

@@ -1,0 +1,87 @@
+:root {
+	--white-1: #f5f5f5;
+	--white-2: #ffffff;
+	--black: #000000;
+	--light-black: #1d1d1d;
+	--blue: #0053cf;
+	--orange: #ea8c00;
+	--green: #639462;
+	--purple: #9747ff;
+	--gray: #838383;
+	--light-gray-1: #d2d2d2;
+	--light-gray-2: #d3d3d3;
+	--light-blue: #3c86f4;
+	--light-orange: #ffecc7;
+	--light-purple: #e8d7ff;
+	--light-green: #e2f7e2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.weather__container {
+	display: flex;
+	align-items: center;
+	color: var(--gray);
+
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 36px;
+	gap: 81.5px;
+}
+
+.weather__temperature {
+	display: flex;
+	align-items: center;
+	color: var(--black);
+
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 36px;
+	gap: 23px;
+}

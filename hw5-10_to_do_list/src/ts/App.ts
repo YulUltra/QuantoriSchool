@@ -1,7 +1,39 @@
+import '../styles/App.css'
+import Component from "./Component";
+import Header from "./Header";
+import Search from "./Search";
+import List from "./List";
+import AddItemModalWindow from "./AddItemModalWindow";
+import Button from "./Button";
+import TodayTasksModalWindow from "./TodayTasksModalWindow";
+import Image from "./Image";
+import TaskRepository from "./TaskRepository";
+import WeatherAPI from "./WeatherAPI";
+import {datesAreEqual} from "./Utils";
+import Task from "./Task";
+import {EntityID, Repository} from "./Repository";
 class App extends Component {
-
-    constructor(props) {
+    taskRepo: Repository<Task>
+    title: Header
+    searchTasksLine: Search
+    activeTasksList: List
+    completedTasksList: List
+    addTaskModalWindow: AddItemModalWindow
+    addTaskButton: Button
+    todayTasksModalWindow: TodayTasksModalWindow
+    weatherTemperature: Component
+    weatherIcon: Image
+    weatherCity: string;
+    constructor(props: {
+        cssClass: string,
+        taskRepo: Repository<Task>,
+        initTasks: Array<Task>,
+        weatherCity: string,
+        weatherTemperature: string,
+        weatherIcon: string,
+    }) {
         super(props)
+        this.weatherCity = props.weatherCity
         this.taskRepo = props.taskRepo
         this.title = new Header({ text: 'To Do List' })
         this.searchTasksLine = new Search({
@@ -37,7 +69,7 @@ class App extends Component {
             }
         })
         this.todayTasksModalWindow = new TodayTasksModalWindow({
-            items: props.initTasks.filter(task => !task.isCompleted && this.taskShouldBeDoneToday(task)),
+            tasks: props.initTasks.filter(task => !task.isCompleted && this.taskShouldBeDoneToday(task)),
             cssClass: 'today-modal'
         })
         this.weatherTemperature = new Component({cssClass: '', children: [`${props.weatherTemperature}°`]})
@@ -59,7 +91,7 @@ class App extends Component {
                                     this.weatherTemperature,
                                 ]
                             }),
-                            this.props.weatherCity,
+                            this.weatherCity,
                         ]
                     }),
                     this.title,
@@ -76,13 +108,13 @@ class App extends Component {
         ]
     }
 
-    addTask = async task => {
+    addTask = async (task: Task): Promise<void> => {
         // addedTask will have an id
         const addedTask = await this.taskRepo.add(task)
         this.addToList(this.activeTasksList, addedTask)
     }
 
-    updateTaskStatus = async task => {
+    updateTaskStatus = async (task: Task) => {
         task.isCompleted = !task.isCompleted
         await this.taskRepo.update(task)
 
@@ -95,45 +127,45 @@ class App extends Component {
         }
     }
 
-    deleteTask = async taskId => {
+    deleteTask = async (taskId: EntityID) => {
         await this.taskRepo.deleteById(taskId)
         this.deleteFromListById(this.activeTasksList, taskId)
     }
 
-    displayTasksBySubstring = e => {
-        this.activeTasksList.setState({displayItemsBySubstring: e.target.value})
-        this.completedTasksList.setState({displayItemsBySubstring: e.target.value})
+    displayTasksBySubstring = (e: Event) => {
+        const target = e.target as HTMLInputElement
+        this.activeTasksList.setState({displayItemsBySubstring: target.value})
+        this.completedTasksList.setState({displayItemsBySubstring: target.value})
     }
 
-    addToList(list, task) {
+    addToList(list: List, task: Task) {
         list.setState({
             items: list.state.items.concat(task)
         })
     }
 
-    deleteFromListById(list, taskId) {
+    deleteFromListById(list: List, taskId: EntityID) {
         list.setState({
             items: list.state.items.filter(task => task.id !== taskId)
         })
     }
 
-    taskShouldBeDoneToday(task) {
+    taskShouldBeDoneToday(task: Task) {
         const today = new Date()
         const taskDate = new Date(task.date)
         return datesAreEqual(today, taskDate)
     }
 }
 
-async function run() {
+export default async function runApp() {
     const weatherAPI = new WeatherAPI({
         apiURL: 'http://api.weatherapi.com',
-        city: 'Tbilisi', apiKey:'8ac348df814f431c83b110953231804'
+        city: 'Tbilisi',
+        apiKey:'8ac348df814f431c83b110953231804'
     })
     const weatherState = await weatherAPI.getWeatherState()
-
     const taskRepo = new TaskRepository({ storageHost: 'localhost', storagePort: 3000 })
     const initTasks = await taskRepo.getAll()
-
 
     const app = new App({
         cssClass: 'wrapper',
@@ -146,5 +178,3 @@ async function run() {
 
     document.body.appendChild(app.render())
 }
-
-run()

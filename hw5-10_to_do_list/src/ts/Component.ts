@@ -1,8 +1,20 @@
-class Component {
+export default class Component {
+    props: {
+        children?: Array<Component | string>,
+        elementType?: string,
+        cssClass?: string,
+        [arg: string]: any
+    }
+    state: {}
+    children?: Array<Component | string>
+    element: HTMLElement;
 
-    constructor(props) {
+    constructor(
+        props: {
+            children?: Array<Component | string>,
+            elementType?: string, cssClass?: string,
+        }) {
         this.props = props
-        this.state = {}
         this.children = props.children
         const elementType = props.elementType || 'div'
         this.element = document.createElement(elementType)
@@ -11,12 +23,13 @@ class Component {
         }
     }
 
+    // @ts-ignore
     setState(state) {
         this.state = { ...this.state, ...state }
         this.render()
     }
 
-    updateDOM() { }
+    updateDOM(): void { }
 
     render() {
         const element = this.element
