@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "app": "webpack serve & json-server --watch src/database/db.json",
-    "build": "webpack",
+    "app": "../node_modules/.bin/webpack serve & json-server --watch src/database/db.json",
+    "build": "../node_modules/.bin/webpack",
     "clear-dist": "rm -rf ./dist"
   },
   "keywords": [],
