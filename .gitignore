@@ -80,7 +80,7 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
-# next.js build output
+# next.ts build output
 .next
 
 # Lerna
@@ -89,3 +89,4 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+node_modules

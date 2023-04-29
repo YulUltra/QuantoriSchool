@@ -1,5 +1,8 @@
-class WeatherAPI {
-    constructor({apiURL, city, apiKey}) {
+export default class WeatherAPI {
+    apiURL: string
+    city: string
+    apiKey: string
+    constructor({apiURL, city, apiKey}: {apiURL: string, city: string, apiKey: string}) {
         this.apiURL = apiURL
         this.city = city
         this.apiKey = apiKey

@@ -11,7 +11,7 @@
       "name": "Take a quick walk around the block for a mental break.",
       "label": "health",
       "date": "2023-04-19",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 2
     },
     {
@@ -25,14 +25,14 @@
       "name": "Send a quick text to a friend to check in and say hello.",
       "label": "other",
       "date": "2023-04-19",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 4
     },
     {
       "name": "Brush my teeth.",
       "label": "health",
       "date": "2023-04-19",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 5
     },
     {
@@ -46,7 +46,7 @@
       "name": "Take a quick dance break to a favorite song.",
       "label": "other",
       "date": "2023-04-20",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 7
     },
     {
@@ -55,20 +55,6 @@
       "date": "2023-04-19",
       "isCompleted": false,
       "id": 8
-    },
-    {
-      "name": "Take a quick walk around the block for a mental break.",
-      "label": "health",
-      "date": "2023-04-19",
-      "isCompleted": true,
-      "id": 9
-    },
-    {
-      "name": "Schedule a meeting or call with a client or coworker.",
-      "label": "work",
-      "date": "2023-04-19",
-      "isCompleted": false,
-      "id": 10
     }
   ]
 }

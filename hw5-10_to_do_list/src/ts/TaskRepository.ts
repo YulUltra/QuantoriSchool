@@ -1,16 +1,20 @@
-class TaskRepository extends Repository {
-    constructor({ storageHost, storagePort }) {
-        super()
+import Task from "./Task";
+import {EntityID, Repository} from "./Repository";
+
+export default class TaskRepository implements Repository<Task> {
+    storageURL: string;
+    taskEndpoint: string;
+    constructor({ storageHost, storagePort }: { storageHost: string, storagePort: number}) {
         this.storageURL = `http://${storageHost}:${storagePort}`
         this.taskEndpoint = `${this.storageURL}/tasks`
     }
 
-    async getAll() {
+    async getAll(): Promise<Array<Task>> {
         const response = await fetch(this.taskEndpoint)
-        return response.json()
+        return await response.json() as Array<Task>
     }
 
-    async add(entity) {
+    async add(entity: Task): Promise<Task> {
         const response = await fetch(this.taskEndpoint, {
             method: 'POST',
             headers: {
@@ -19,10 +23,10 @@ class TaskRepository extends Repository {
             },
             body: JSON.stringify(entity),
         })
-        return response.json()
+        return await response.json() as Task
     }
 
-    async update(entity) {
+    async update(entity: Task): Promise<void> {
         const url = `${this.taskEndpoint}/${entity.id}`
         await fetch(url, {
             method: "PUT",
@@ -34,7 +38,7 @@ class TaskRepository extends Repository {
         })
     }
 
-    async deleteById(entityId) {
+    async deleteById(entityId: EntityID): Promise<void> {
         const url = `${this.taskEndpoint}/${entityId}`
         await fetch(url, {
             method: "DELETE",

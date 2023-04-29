@@ -1,0 +1,108 @@
+h2 {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 700;
+}
+
+.modal__input,
+.modal__submit-btn,
+.modal__date-input {
+    font-family: 'Nunito';
+    font-style: normal;
+}
+
+.modal__title {
+    display: flex;
+    justify-content: center;
+}
+
+.modal__input {
+    background: var(--white-1);
+    border: 1px solid var(--light-gray-1);
+    border-radius: 12px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    width: 477px;
+    height: 52px;
+    padding: 0 21px;
+}
+
+.modal__input:active {
+    color: var(--black);
+}
+
+.modal__date-input {
+    background: var(--white-2);
+    border: 2px solid rgba(60, 134, 244, 0.6);
+    border-radius: 12px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    padding: 10px 16px;
+}
+
+.modal__date-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.btn {
+    color: var(--blue);
+    border: none;
+    border-radius: 12px;
+
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+
+    padding: 16px 32px;
+    width: 227.5px;
+    height: 52px;
+}
+
+.modal__cancel-btn {
+    background: var(--white);
+}
+
+.modal__submit-btn {
+    background: rgba(60, 134, 244, 0.15);
+}
+
+.modal__submit-btn:hover {
+    background: rgba(60, 134, 244, 0.35);
+}
+
+.modal__submit-btn:active {
+    background: var(--light-blue);
+    color: var(--white-2);
+}
+
+.modal__submit-btn:disabled {
+    background: var(--light-gray-2);
+    color: var(--white-2);
+}
+
+.modal__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 18px;
+    margin-bottom: 102px;
+}
+
+.modal__label-container {
+    display: flex;
+    gap: 12px;
+}
+
+.modal__btn-container {
+    display: flex;
+    justify-content: space-between;
+}
