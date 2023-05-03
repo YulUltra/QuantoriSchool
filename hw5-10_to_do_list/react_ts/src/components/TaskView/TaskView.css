@@ -1,0 +1,104 @@
+@import '../../index.css';
+
+.checkbox__input {
+    border: 1px solid var(--gray);
+    width: 21px;
+}
+
+.checkbox__task-title {
+    color: var(--light-black);
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 0;
+}
+
+.label {
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    border: none;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 2px 8px;
+}
+
+.label-home {
+    background: var(--light-green);
+    color: var(--green);
+}
+
+.label-home:focus {
+    border: 1px solid var(--green);
+}
+
+.label-work {
+    background: var(--light-purple);
+    color: var(--purple);
+}
+
+.label-work:focus {
+    border: 1px solid var(--purple);
+}
+
+.label-health {
+    background: rgba(60, 134, 244, 0.31);
+    color: var(--blue);
+}
+
+.label-health:focus {
+    border: 1px solid var(--blue);
+}
+
+.label-other {
+    background: var(--light-orange);
+    color: var(--orange);
+}
+
+.label-other:focus {
+    border: 1px solid var(--orange);
+}
+
+.date {
+    color: var(--gray);
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.checkbox__delete-btn {
+    background-image: url('assets/bin.svg');
+    border: none;
+    display: flex;
+    background-repeat: no-repeat;
+
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox__delete-btn:hover {
+    background-image: url('assets/bin-hover.svg');
+}
+
+.checkbox__delete-btn:active {
+    background-image: url('assets/bin-active.svg');
+}
+
+.checkbox__container {
+    display: flex;
+    gap: 23px;
+}
+
+.checkbox__container-param {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 8px;
+    margin-top: 9px;
+}

@@ -1,0 +1,18 @@
+@import '../../index.css';
+
+.search__btn {
+    background: rgba(60, 134, 244, 0.15);
+    color: var(--blue);
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+
+    width: 158px;
+    height: 52px;
+    padding: 16px 32px;
+}
