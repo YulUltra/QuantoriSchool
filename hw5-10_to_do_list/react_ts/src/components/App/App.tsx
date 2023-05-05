@@ -13,12 +13,13 @@ import WeatherAPI from "../../api/WeatherAPI";
 export default function App() {
     const [isAddTaskModalWindowShown, setIsAddTaskModalWindowShown] = useState(false);
     const [initTasks, setInitTasks] = useState<Array<Task>>([]);
-    const [activeTasks, setActiveTasks] = useState(initTasks.filter((t) => !t.isCompleted));
-    const [completedTasks, setCompletedTasks] = useState(initTasks.filter((t) => t.isCompleted));
+    const [activeTasks, setActiveTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState([]);
+    // const activeTasks2 = useMemo(() =>initTasks.filter((t) => !t.isCompleted), [initTasks, searchString]);
     const taskRepo = new TaskRepository({ storageHost: "localhost", storagePort: 3000 });
     useLayoutEffect(() => {
         taskRepo.getAll().then((tasks) => {
-            setInitTasks(tasks);
+            // setInitTasks(tasks);
             setActiveTasks(tasks.filter((t) => !t.isCompleted));
             setCompletedTasks(tasks.filter((t) => t.isCompleted));
         });
@@ -64,15 +65,19 @@ export default function App() {
     };
 
     const updateTaskStatus = async (task: Task) => {
-        task.isCompleted = !task.isCompleted;
-        await taskRepo.update(task);
+        try {
+            task.isCompleted = !task.isCompleted;
+            await taskRepo.update(task);
 
-        if (task.isCompleted) {
-            addToList(completedTasks, setCompletedTasks, task);
-            deleteFromListById(activeTasks, setActiveTasks, task.id);
-        } else {
-            addToList(activeTasks, setActiveTasks, task);
-            deleteFromListById(completedTasks, setCompletedTasks, task.id);
+            if (task.isCompleted) {
+                addToList(completedTasks, setCompletedTasks, task);
+                deleteFromListById(activeTasks, setActiveTasks, task.id);
+            } else {
+                addToList(activeTasks, setActiveTasks, task);
+                deleteFromListById(completedTasks, setCompletedTasks, task.id);
+            }
+        } catch (e) {
+            console.error(e);
         }
     };
 
@@ -117,11 +122,11 @@ export default function App() {
                     text={"+ New Task"}
                 ></Button>
             </div>
-            <AddTaskModalWindow
+            {isAddTaskModalWindowShown && <AddTaskModalWindow
                 isShown={isAddTaskModalWindowShown}
                 addTask={addTask}
                 hide={() => setIsAddTaskModalWindowShown(false)}
-            ></AddTaskModalWindow>
+            />}
             <TaskList
                 tasks={activeTasks}
                 title={"All Tasks"}
@@ -129,7 +134,7 @@ export default function App() {
                 onCheckboxClick={updateTaskStatus}
                 deleteTask={deleteTask}
                 displayTasksBySubstring={searchString}
-            ></TaskList>
+            />
             <TaskList
                 tasks={completedTasks}
                 title={"Completed Tasks"}
@@ -139,7 +144,7 @@ export default function App() {
                 displayTasksBySubstring={searchString}
             ></TaskList>
             <TodayTasksModalWindow
-                tasks={initTasks.filter((t) => taskShouldBeDoneToday(t))}
+                tasks={activeTasks.filter((t) => taskShouldBeDoneToday(t))}
             ></TodayTasksModalWindow>
         </div>
     );

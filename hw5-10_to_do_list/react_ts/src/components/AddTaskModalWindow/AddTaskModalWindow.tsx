@@ -15,6 +15,7 @@ export default function AddTaskModalWindow({
     hide: () => void;
 }) {
     const [isAddTaskButtonDisabled, setIsAddTaskButtonDisabled] = useState(true);
+    const [taskName2, setTaskName] = useState('');
     const taskNameInputRef = useRef(null);
     let taskLabel: string = "";
     const labelButtons = ["health", "work", "home", "other"].map((label) =>
@@ -27,9 +28,12 @@ export default function AddTaskModalWindow({
         })
     );
 
+    // const isValid = Boolean(taskName2.trim()) && isDataValid(dataField);
+
     let taskName: string;
     const onTaskNameInput = (e: FormEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
+        setTaskName(value);
         taskName = value;
         value ? setIsAddTaskButtonDisabled(false) : setIsAddTaskButtonDisabled(true);
     };
@@ -49,6 +53,10 @@ export default function AddTaskModalWindow({
             isCompleted: false,
         });
     };
+
+    if (!isShown) {
+      return null;
+    }
 
     return (
         <div className="modal" style={{ display: isShown ? "block" : "none" }}>

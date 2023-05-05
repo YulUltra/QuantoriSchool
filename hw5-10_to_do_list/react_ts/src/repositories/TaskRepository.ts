@@ -29,7 +29,7 @@ export default class TaskRepository implements Repository<Task> {
 
     async update(entity: Task): Promise<void> {
         const url = `${this.taskEndpoint}/${entity.id}`;
-        await fetch(url, {
+        const resp = await fetch(url, {
             method: "PUT",
             headers: {
                 Accept: "application/json",
@@ -37,6 +37,11 @@ export default class TaskRepository implements Repository<Task> {
             },
             body: JSON.stringify(entity),
         });
+
+        if (!resp.ok) {
+            throw new Error('error');
+        }
+
     }
 
     async deleteById(entityId: EntityID): Promise<void> {

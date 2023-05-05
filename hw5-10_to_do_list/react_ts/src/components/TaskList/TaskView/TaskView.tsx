@@ -4,20 +4,7 @@ import { EntityID } from "../../repositories/Repository";
 import Button from "../Button/Button";
 import { datesAreEqual } from "../../utils/Utils";
 
-export default function TaskView({
-    isDisplayed,
-    task,
-    className,
-    onCheckboxClick,
-    deleteTask,
-}: {
-    isDisplayed: boolean;
-    task: Task;
-    className: string;
-    onCheckboxClick: (task: Task) => Promise<void>;
-    deleteTask: (taskId: EntityID) => Promise<void>;
-}) {
-    const formatDate = (dateLikeString: string) => {
+const formatDate = (dateLikeString: string) => {
         if (dateLikeString === "") {
             return dateLikeString;
         }
@@ -66,6 +53,21 @@ export default function TaskView({
         return formattedDate;
     };
 
+
+export default function TaskView({
+    isDisplayed,
+    task,
+    className,
+    onCheckboxClick,
+    deleteTask,
+}: {
+    isDisplayed: boolean;
+    task: Task;
+    className: string;
+    onCheckboxClick: (task: Task) => Promise<void>;
+    // onCheckboxClick: (taskId: EntityID) => Promise<void>;
+    deleteTask: (taskId: EntityID) => Promise<void>;
+}) {
     return (
         <li key={task.id} className={className} style={{ display: isDisplayed ? "" : "none" }}>
             <div className={"checkbox__container"}>
