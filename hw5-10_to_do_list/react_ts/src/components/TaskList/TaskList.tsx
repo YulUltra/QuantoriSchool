@@ -19,13 +19,13 @@ export default function TaskList({
     displayTasksBySubstring: string;
 }) {
     const tasksView = tasks.map((task) =>
-        TaskView({
-            isDisplayed: task.name.toLowerCase().includes(displayTasksBySubstring),
-            task: task,
-            className: taskViewClassName,
-            onCheckboxClick: onCheckboxClick,
-            deleteTask: deleteTask,
-        })
+        <TaskView 
+          isDisplayed = {}
+          task = {task}
+          className = {taskViewClassName}
+          onCheckboxClick = {onCheckboxClick}
+          deleteTask = {deleteTask}
+        />
     );
     return (
         <ul>
