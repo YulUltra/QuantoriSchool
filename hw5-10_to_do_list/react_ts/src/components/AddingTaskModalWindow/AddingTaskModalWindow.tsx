@@ -1,11 +1,11 @@
-import "./AddTaskModalWindow.css";
+import "./AddingTaskModalWindow.css";
 import "../Button/Button.css";
 import Button from "../Button/Button";
 import Task from "../../types/Task";
 import { FormEvent, useRef, useState } from "react";
 import { stringifyDate } from "../../utils/Utils";
 
-export default function AddTaskModalWindow({
+export default function AddingTaskModalWindow({
     isShown,
     addTask,
     hide,
@@ -14,24 +14,22 @@ export default function AddTaskModalWindow({
     addTask: (task: Task) => Promise<void>;
     hide: () => void;
 }) {
-    const [isAddTaskButtonDisabled, setIsAddTaskButtonDisabled] = useState(true);
     const taskNameInputRef = useRef(null);
+    const [taskName, setTaskName] = useState("");
     let taskLabel: string = "";
-    const labelButtons = ["health", "work", "home", "other"].map((label) =>
-        Button({
-            text: label,
-            className: `label label-${label}`,
-            onClick: () => {
+    const labelButtons = ["health", "work", "home", "other"].map((label) => (
+        <Button
+            key={label}
+            text={label}
+            className={`label label-${label}`}
+            onClick={() => {
                 taskLabel = label;
-            },
-        })
-    );
+            }}
+        />
+    ));
 
-    let taskName: string;
     const onTaskNameInput = (e: FormEvent<HTMLInputElement>) => {
-        const value = e.currentTarget.value;
-        taskName = value;
-        value ? setIsAddTaskButtonDisabled(false) : setIsAddTaskButtonDisabled(true);
+        setTaskName(e.currentTarget.value);
     };
 
     let taskDate: string = stringifyDate(new Date());
@@ -49,6 +47,10 @@ export default function AddTaskModalWindow({
             isCompleted: false,
         });
     };
+
+    if (!isShown) {
+        return null;
+    }
 
     return (
         <div className="modal" style={{ display: isShown ? "block" : "none" }}>
@@ -75,7 +77,7 @@ export default function AddTaskModalWindow({
                     className="btn modal__submit-btn"
                     onClick={onAddTaskButtonClick}
                     text="Add Task"
-                    isDisabled={isAddTaskButtonDisabled}
+                    isDisabled={!Boolean(taskName.trim())}
                 ></Button>
             </div>
         </div>
