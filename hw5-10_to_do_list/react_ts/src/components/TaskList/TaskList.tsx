@@ -28,8 +28,8 @@ export default function TaskList({
         />
     );
     return (
-        <ul>
             <h2>{title}</h2>
+            <ul>
             {tasksView}
         </ul>
     );
