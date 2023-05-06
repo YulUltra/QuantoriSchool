@@ -1,4 +1,4 @@
-export default class WeatherAPI {
+export class WeatherAPI {
     apiURL: string;
     city: string;
     apiKey: string;
