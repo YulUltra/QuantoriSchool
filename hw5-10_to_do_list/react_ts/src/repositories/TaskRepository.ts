@@ -10,9 +10,14 @@ export default class TaskRepository implements Repository<Task> {
         this.taskEndpoint = `${this.storageURL}/tasks`;
     }
 
-    async getAll(): Promise<Array<Task>> {
+    async getAll(): Promise<Task[]> {
         const response = await fetch(this.taskEndpoint);
-        return (await response.json()) as Array<Task>;
+        if (!response.ok) {
+            throw new Error(
+                `The following error occurred during getting all tasks: ${response.statusText}`
+            );
+        }
+        return (await response.json()) as Task[];
     }
 
     async add(entity: Task): Promise<Task> {
@@ -24,12 +29,17 @@ export default class TaskRepository implements Repository<Task> {
             },
             body: JSON.stringify(entity),
         });
+        if (!response.ok) {
+            throw new Error(
+                `The following error occurred during adding a task with id = ${entity.id}: ${response.statusText}`
+            );
+        }
         return (await response.json()) as Task;
     }
 
     async update(entity: Task): Promise<void> {
         const url = `${this.taskEndpoint}/${entity.id}`;
-        await fetch(url, {
+        const response = await fetch(url, {
             method: "PUT",
             headers: {
                 Accept: "application/json",
@@ -37,16 +47,26 @@ export default class TaskRepository implements Repository<Task> {
             },
             body: JSON.stringify(entity),
         });
+        if (!response.ok) {
+            throw new Error(
+                `The following error occurred during updating a task with id = ${entity.id}: ${response.statusText}`
+            );
+        }
     }
 
     async deleteById(entityId: EntityID): Promise<void> {
         const url = `${this.taskEndpoint}/${entityId}`;
-        await fetch(url, {
+        const response = await fetch(url, {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
         });
+        if (!response.ok) {
+            throw new Error(
+                `The following error occurred during deleting a task with id = ${entityId}: ${response.statusText}`
+            );
+        }
     }
 }
