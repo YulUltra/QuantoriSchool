@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "name": "Take a quick walk around the block for a mental break.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": true,
+      "id": 2
+    },
+    {
+      "name": "Drink a glass of water and refill my bottle for the day.",
+      "label": "health",
+      "date": "2023-04-19",
+      "isCompleted": true,
+      "id": 3
+    },
+    {
+      "name": "Send a quick text to a friend to check in and say hello.",
+      "label": "other",
+      "date": "2023-04-19",
+      "isCompleted": false,
+      "id": 4
+    },
+    {
+      "name": "Brush my teeth 3 times",
+      "label": "work",
+      "date": "2024-05-20",
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "name": "Take a quick dance break to a favorite song.",
+      "label": "other",
+      "date": "2023-04-20",
+      "isCompleted": false,
+      "id": 7
+    }
+  ]
+}
