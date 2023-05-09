@@ -12,23 +12,18 @@ import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 import { showOnAddingTaskModalWindow } from "../../redux/taskModalWindowSlice";
 
 export default function App() {
-    const [allTasks, setAllTasks] = useState<Task[]>([]);
     const [searchString, setSearchString] = useState("");
+
     const isTaskModalWindowShown = useAppSelector(
         (state: RootState) => state.taskModalWindow.isShown
     );
+
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchAllTasks());
     }, []);
     const weatherCity = "Tbilisi";
     const weatherState = useWeather(weatherCity);
-
-    const taskShouldBeDoneToday = (task: Task) => {
-        const today = new Date();
-        const taskDate = new Date(task.date);
-        return datesAreEqual(today, taskDate);
-    };
 
     const displayTasksBySubstring = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchString(e.target.value);
@@ -70,7 +65,7 @@ export default function App() {
                 taskViewClassName={"checkbox checkbox--completed"}
                 displayTasksBySubstring={searchString}
             />
-            <TodayTasksModalWindow tasks={allTasks.filter((t) => taskShouldBeDoneToday(t))} />
+            <TodayTasksModalWindow />
         </div>
     );
 }

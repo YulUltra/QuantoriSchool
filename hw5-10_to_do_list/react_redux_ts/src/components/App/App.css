@@ -91,3 +91,7 @@ h1 {
 .checkbox--completed .checkbox__input {
     accent-color: var(--gray);
 }
+
+.checkbox--completed .checkbox__edit-btn {
+    display: none;
+}
