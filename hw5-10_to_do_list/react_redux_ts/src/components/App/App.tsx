@@ -4,16 +4,13 @@ import Button from "../Button/Button";
 import TaskModalWindow from "../TaskModalWindow/TaskModalWindow";
 import TaskList, { TaskListType } from "../TaskList/TaskList";
 import TodayTasksModalWindow from "../TodayTasksModalWindow/TodayTasksModalWindow";
-import Task from "../../types/Task";
-import { datesAreEqual } from "../../utils/Utils";
 import { useWeather } from "./useWeather";
 import { fetchAllTasks } from "../../redux/tasksSlice";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 import { showOnAddingTaskModalWindow } from "../../redux/taskModalWindowSlice";
+import { setSearchString } from "../../redux/searchStringSlice";
 
 export default function App() {
-    const [searchString, setSearchString] = useState("");
-
     const isTaskModalWindowShown = useAppSelector(
         (state: RootState) => state.taskModalWindow.isShown
     );
@@ -24,10 +21,6 @@ export default function App() {
     }, []);
     const weatherCity = "Tbilisi";
     const weatherState = useWeather(weatherCity);
-
-    const displayTasksBySubstring = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchString(e.target.value);
-    };
 
     return (
         <div className={"wrapper"}>
@@ -46,7 +39,9 @@ export default function App() {
                     type={"text"}
                     placeholder={"Search Task"}
                     className={"search__input"}
-                    onChange={displayTasksBySubstring}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        dispatch(setSearchString(e.target.value))
+                    }
                 />
                 <Button
                     className={"search__btn"}
@@ -55,15 +50,10 @@ export default function App() {
                 ></Button>
             </div>
             {isTaskModalWindowShown && <TaskModalWindow />}
-            <TaskList
-                type={TaskListType.ActiveTasks}
-                taskViewClassName={"checkbox"}
-                displayTasksBySubstring={searchString}
-            />
+            <TaskList type={TaskListType.ActiveTasks} taskViewClassName={"checkbox"} />
             <TaskList
                 type={TaskListType.CompletedTasks}
                 taskViewClassName={"checkbox checkbox--completed"}
-                displayTasksBySubstring={searchString}
             />
             <TodayTasksModalWindow />
         </div>

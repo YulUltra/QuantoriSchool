@@ -44,11 +44,11 @@ export const taskModalWindowStateSlice = createSlice({
         setCurrentTaskName(state, action: PayloadAction<string>) {
             state.task.name = action.payload;
         },
-        setCurrentTaskLabel(state, action: PayloadAction<string>) {
-            state.task.label = action.payload;
-        },
         setCurrentTaskDate(state, action: PayloadAction<string>) {
             state.task.date = action.payload;
+        },
+        setCurrentTaskLabel(state, action: PayloadAction<string>) {
+            state.task.label = action.payload;
         },
     },
 });

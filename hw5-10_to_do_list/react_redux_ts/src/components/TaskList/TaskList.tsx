@@ -16,11 +16,9 @@ export namespace TaskListType {
 export default function TaskList({
     type,
     taskViewClassName,
-    displayTasksBySubstring = "",
 }: {
     type: TaskListType;
     taskViewClassName: string;
-    displayTasksBySubstring: string;
 }) {
     const tasks = useAppSelector(
         (state) => state.tasks.tasks.filter((t) => t.isCompleted == TaskListType.isCompleted(type)) //FIXME name
