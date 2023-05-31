@@ -4,7 +4,7 @@
       "name": "Take a quick walk around the block for a mental break.",
       "label": "health",
       "date": "2023-04-19",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 2
     },
     {
@@ -32,14 +32,14 @@
       "name": "Do a 1-minute plank.",
       "label": "health",
       "date": "2023-04-19",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 6
     },
     {
       "name": "Take a quick dance break to a favorite song.",
       "label": "other",
       "date": "2023-04-20",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 7
     }
   ]

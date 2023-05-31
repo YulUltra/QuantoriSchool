@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import { datesAreEqual, stringifyDate } from "../../utils/Utils";
 
-export default function TodayTasksModalWindow({ tasks }: { tasks: Array<Task> }) {
+export default function TodayTasksModalWindow({ tasks }: { tasks: Task[] }) {
     const [isShown, setIsShown] = useState(false);
 
     const storageKey = "todayTasksModalWindowLastShowDate";
