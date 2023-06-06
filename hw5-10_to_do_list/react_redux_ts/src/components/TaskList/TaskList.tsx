@@ -23,6 +23,7 @@ export default function TaskList({
     const tasks = useAppSelector(
         (state) => state.tasks.tasks.filter((t) => t.isCompleted == TaskListType.isCompleted(type)) //FIXME name
     );
+    const displayTasksBySubstring = useAppSelector((state) => state.searchString);
     const tasksView = tasks.map((task) => (
         <TaskView
             key={task.id}

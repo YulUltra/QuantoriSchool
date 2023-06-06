@@ -5,10 +5,10 @@ export const searchStringStateSlice = createSlice({
     initialState: "",
     reducers: {
         setSearchString(state, action: PayloadAction<string>) {
-            state = action.payload;
+            return action.payload;
         },
         clearSearchString(state) {
-            state = "";
+            return "";
         },
     },
 });
